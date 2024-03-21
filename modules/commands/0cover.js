@@ -1,4 +1,4 @@
-const API = "https://xakibin.onrender.com";
+const API = "https://sakibin.onrender.com";
 
 module.exports.config = { usePrefix: true,
   name: "cover",
