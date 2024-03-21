@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>Redirect Page</title>
+  
+  <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  overflow: hidden;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.header img {
+  width: 200px; /* Adjust the size as needed */
+  height: 200px; /* Adjust the size as needed */
+  border-radius: 5px;
+}
+  #adminSakibin {
+      position: relative;
+      height: 40px;
+      width: 300px;
+      left: 50px;
+      top: 30px;
+  }
+ 
+  #adminImtiaz {
+      position: relative;
+      height: 40px;
+      width: 300px;
+      left: 50px;
+      top: 55px;
+  }
+  
+ #chatGPT {
+      position: relative;
+      height: 40px;
+      width: 300px;
+      left: 50px;
+      top: 100px;
+    }
+    
+  #allApi {
+      position: relative;
+      height: 40px;
+      width: 300px;
+      left: 50px;
+      top: 80px;
+  }
+    #Fgreen {
+      position: relative;
+      height: 150px;
+      width: 300px;
+      left: 50px;
+      top: 130px;
+      background-color: green;
+  }
+    #Fred {
+      position: relative;
+      height: 80px;
+      width: 80px;
+      right: 140px;
+      top: 95px;
+      background-color: red;
+      border-radius: 50%;
+  }
+  
+  .neon-button {
+    border: none;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, box-shadow 0.3s;
+   
+    
+  }
+
+  /* Neon glow effect on hover */
+  .neon-button:hover {
+    background-color: #4CAF50; /* Change this to your desired glow color */
+    box-shadow: 0 0 20px #4CAF50, 0 0 40px #4CAF50, 0 0 60px #4CAF50; /* Adjust the glow size and color as needed */
+  }
+
+  /* Neon glow effect on click */
+  .neon-button:active {
+    background-color: #f44336; /* Change this to your desired click glow color */
+    box-shadow: 0 0 20px #f44336, 0 0 40px #f44336, 0 0 60px #f44336; /* Adjust the glow size and color as needed */
+  }
+.container {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+input[type="text"] {
+  position: relative;
+  bottom: 200px;
+  padding: 10px;
+  color: black;
+  background-color: white;
+  font-size: 16px;
+  border: 2px solid #695CFE;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 15px #695CFE, 0 0 30px #695CFE, 0 0 40px #695CFE;
+} 
+
+#startButton {
+  position: relative;
+  bottom: 200px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #695CFE;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+#getcodeButton{
+  position: relative;
+  bottom: 500px;
+  left: 45px;
+  padding: 10px 125px;
+  font-size: 16px;
+  background-color: #695CFE;
+  border: none;
+  border-radius: 5px;
+  
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+#startButton:hover {
+  box-shadow: 0 0 15px #695CFE, 0 0 30px #695CFE, 0 0 40px #695CFE;
+}
+#getcodeButton:hover {
+  box-shadow: 0 0 15px #695CFE, 0 0 30px #695CFE, 0 0 40px #695CFE;
+}
+ #text {
+  border-right: 2px solid #fff;
+  animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 20px;
+  font-family: 'Courier New', monospace;
+  color: #00ff00;
+} 
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+} 
+
+.popup {
+  color: #695CFE;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup h2 {
+  margin: 0;
+}
+
+.loading-animation {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-left-color: #695CFE;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ .welcome {
+      border: 1px solid #695CFE;
+      font-size: 48px;
+      color: #695CFE;
+      text-align: center;
+      text-transform: uppercase;
+      animation: neonGlow 2s infinite alternate, pulsate 2s infinite;
+    }
+
+    @keyframes neonGlow {
+      from {
+        text-shadow: 0 0 10px #695CFE;
+      }
+      to {
+        text-shadow: 0 0 20px #695CFE, 0 0 30px #695CFE, 0 0 40px #695CFE;
+      }
+    }
+
+
+p {
+  white-space: pre-line;
+  border-right: 2px solid #000;
+  font-family: monospace;
+  overflow: hidden;
+  animation: typing 5s steps(40) infinite, blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #000;
+  }
+}
+  </style>
+</head>
+<body>
+     <script src="efek-salju.js" type="text/javascript"> </script>
+  <div class="header">
+    <img src="https://i.ibb.co/XFcwzXK/received-1516461085762663.jpg" height="400" width="400">
+  </div>
+<div class="welcome">ARFHAT</div>
+<!--<div>
+  <a href="https://example.com">
+    <button id="adminSakibin" class="neon-button"><i class="fa fa-user"></i> Admin Sakibin</button>
+  </a>
+  
+  <a href="https://example2.com">
+    <button id="adminImtiaz" class="neon-button"><i class="fa fa-user"></i> Admin Imtiaz</button>
+  </a>
+  
+  <a  href="https://example3.com">
+    <button id="allApi" class="neon-button"><i class="fa fa-code"></i> Free API</button>
+  </a>
+  
+    <a href="https://example2.com">
+    <button id="chatGPT" class="neon-button"><i class="fa fa-bolt"></i> ChatGPT</button>
+  </a>
+ <a href="#">
+    <button id="Fgreen" class="neon-button"> </button>
+  </a>
+  <a href="#">
+    <button id="Fred" class="neon-button"></button>
+  </a>
+</div> -->
+
+  <div class="container">
+    <input type="text" id="codeInput" placeholder="Enter the code">
+    <button id="startButton" onclick="checkCode()">Start</button>
+   
+     
+  </div>
+  
+  <div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+      <h2>Starting...</h2>
+    </div>
+  </div>
+
+
+  <script>
+      function checkCode() {
+  const codeInput = document.getElementById('codeInput');
+  const code = codeInput.value.trim();
+
+  if (code === 'arfhat') {
+    showPopup();
+    setTimeout(() => {
+      window.location.href = 'https://arfhat-web--arfhat.repl.co';
+    }, 2000);
+  } else {
+    alert('Invalid code. Please try again.');
+  }
+}
+
+function showPopup() {
+  const overlay = document.getElementById('overlay');
+  const popup = document.getElementById('popup');
+  const loadingAnimation = document.createElement('div');
+  loadingAnimation.classList.add('loading-animation');
+  popup.innerHTML = '<h2>Starting...</h2>';
+  popup.appendChild(loadingAnimation);
+  overlay.style.display = 'block';
+}
+function GetCode() {
+      // Replace 'YOUR_FACEBOOK_PROFILE_LINK' with the actual link to your Facebook profile
+      window.location.href = 'https://www.facebook.com/profile.php?id=100065445284007&mibextid=9R9pXO';
+    }
+    const textElement = document.getElementById("text");
+const text = textElement.innerText;
+textElement.innerText = "";
+
+let i = 0;
+function typeText() {
+  if (i < text.length) {
+    textElement.innerText += text.charAt(i);
+    i++;
+    setTimeout(typeText, 50);
+  }
+}
+
+setTimeout(typeText, 1000);
+  </script>
+</body>
+</html>

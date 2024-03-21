@@ -1,0 +1,297 @@
+{
+    "language": "en",
+    "keyActive": "",
+    "DeveloperMode": false,
+    "autoCreateDB": true,
+    "allowInbox": true,
+    "autoClean": false,
+    "adminOnly": false,
+    "keyAdminOnly": "",
+    "commandDisabled": [
+        "",
+        ""
+    ],
+    "eventDisabled": [],
+    "EMAIL": "",
+    "PASSWORD": "",
+    "OTPKEY": "",
+    "BOTNAME": "𝙎𝘼𝙆𝙄𝘽𝙄𝙉 𝚅𝙰𝚁𝙸𝙰𝙱𝙻𝙴 🅇-2⚡",
+    "PREFIX": "/",
+    "SAKIBIN": [
+        "100065445284007"
+    ],
+    "GOD": [
+        "100065445284007",
+        "100080490655625",
+        ""
+    ],
+    "ADMINBOT": [
+        "100065445284007",
+        "100091242260739",
+        "100095432010016",
+        "100043867392422",
+        "100088425487809",
+        "100089690839395",
+        "100044705774294",
+        "100094752136558",
+        "61551000291672",
+        "100080456630885",
+        "100069101771830",
+        "100088056897997",
+        "100080490655625",
+        "100076945003092",
+        "100093290719980",
+        "100082878042353",
+        "1000044705774294",
+        "100070071355807",
+        "100090043659515",
+        "100058894067427",
+        "100071009500533",
+        "61550479280179",
+        "100012033332351",
+        "61550009932916",
+        "100080609396901",
+        "100070071355807",
+        "100091242260739",
+        "100061525402787",
+        "100034440890616",
+        "100091993564437",
+        "61550280964449",
+        "61551605400575",
+        "100079712760302",
+        "100042023993065",
+        "100095668470307",
+        "100038373847963",
+        "100088138569733",
+        "100086944264331",
+        "100061525402787",
+        "61551780171504",
+        "100095549951423",
+        "100067598372927",
+        "100089548060661",
+        "100050755359067",
+        "100093031339642",
+        "100079031386058",
+        "100080369226926",
+        "100042023993065",
+        "100095668470307",
+        "100083259534041",
+        "100012304818721",
+        "100076600441776",
+        "100080354899973",
+        "100007033578419",
+        "100095549951423",
+        "100083289819306",
+        "100054367729721",
+        "100094531367642",
+        "100094697801263",
+        "100051008899579",
+        "100076945003092",
+        "61552070912437",
+        "61552070912437",
+        "100034510621421",
+        "100018563573996",
+        "100094199305641",
+        "100043867392422",
+        "100089906897447",
+        "61550479280179",
+        "100089596543479",
+        "100088642617683",
+        "100081495786355",
+        "61550479359780",
+        "100086519438027",
+        "100084632946436",
+        "100041328982466",
+        "100091329605486",
+        "100093531450348",
+        "100075792131021",
+        "100056548699969",
+        "100085185282638",
+        "100094697801263",
+        "100017086088787",
+        "100086454485924",
+        "100092016494322",
+        "61551841097253",
+        "100069885452704",
+        "100093502837799",
+        "100092201741932",
+        "100087234050559",
+        "61553259516469",
+        "100049350277150",
+        "100089204404711",
+        "61550956192861",
+        "100077397466530",
+        "61552042823777"
+    ],
+    "DATABASE": {
+        "sqlite": {
+            "storage": "data.sqlite"
+        }
+    },
+    "DESIGN": {
+        "Title": "SAKIBIN",
+        "Theme": "Hacker",
+        "Admin": "SAKIBIN",
+        "Setup": {
+            "Title": "Design your own custom terminal Titlebar for the title and must contain no numbers",
+            "Theme": "Customize your console effortlessly with various theme colors. Explore Aqua, Fiery, Blue, Pink, Red, Retro, Sunlight, Teen, Summer, Flower, Ghost, and Hacker themes to enhance your terminal logs."
+        }
+    },
+    "APPSTATEPATH": "appstate.json",
+    "FCAOption": {
+        "forceLogin": true,
+        "listenEvents": true,
+        "pauseLog": true,
+        "logLevel": "error",
+        "selfListen": false,
+        "userAgent": "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21"
+    },
+    "version": "1.2.14",
+    "help": {
+        "autoUnsend": "",
+        "delayUnsend": 60
+    },
+    "adminUpdate": {
+        "autoUnsend": true,
+        "sendNoti": true,
+        "timeToUnsend": 10
+    },
+    "log": {
+        "enable": true
+    },
+    "rankup": {
+        "autoUnsend": "",
+        "unsendMessageAfter": 5
+    },
+    "work": {
+        "cooldownTime": 1200000
+    },
+    "youtube-video": {
+        "YOUTUBE_API": "AIzaSyAV1Ob0n_87tZSmCMorTGE-jHVrAvnXcIM"
+    },
+    "linkword": {
+        "APIKEY": ""
+    },
+    "ytb-video": {
+        "YOUTUBE_API": "AIzaSyAV1Ob0n_87tZSmCMorTGE-jHVrAvnXcIM"
+    },
+    "math": {
+        "WOLFRAM": "T8J8YV-H265UQ762K"
+    },
+    "luật bot": {
+        "autoUnsend": true,
+        "delayUnsend": 30
+    },
+    "lbot": {
+        "autoUnsend": true,
+        "delayUnsend": 30
+    },
+    "work-beta": {
+        "cooldownTime": 1200000
+    },
+    "job-beta": {
+        "cooldownTime": 5000
+    },
+    "job": {
+        "cooldownTime": 5000
+    },
+    "sauce": {
+        "SAUCENAO_API": "a2430f4a078a4782540142bfad2551f3384bd20f"
+    },
+    "weather": {
+        "OPEN_WEATHER": "b7f1db5959a1f5b2a079912b03f0cd96"
+    },
+    "simsimi": {
+        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
+    },
+    "sim": {
+        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
+    },
+    "slap": {
+        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
+    },
+    "daily": {
+        "cooldownTime": 43200000,
+        "rewardCoin": 19310000
+    },
+    "manslap": {
+        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
+    },
+    "play": {
+        "YOUTUBE_API": "AIzaSyBtiD442srhczDpcg8xbhinP423BeUFXB8",
+        "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
+    },
+    "video": {
+        "YOUTUBE_API": "AIzaSyBtiD442srhczDpcg8xbhinP423BeUFXB8"
+    },
+    "testcovid": {
+        "APIKEY": "Meew_kB5wRAlpHhrAj0GhRzmmLHesvvTbXE"
+    },
+    "fish": {
+        "cooldownTime": 1000000
+    },
+    "simv2": {
+        "APIKEY": "mzkVip_Simsimi"
+    },
+    "cave": {
+        "cooldownTime": 1000000
+    },
+    "simvoice": {
+        "APIKEY": "Meew_hTrAe8Ipec8EsSRsQXoMO7v0XaPgY0"
+    },
+    "sing": {
+        "YOUTUBE_API": "AIzaSyBtiD442srhczDpcg8xbhinP423BeUFXB8",
+        "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
+    },
+    "slapv2": {
+        "APIKEY": ""
+    },
+    "videov2": {
+        "YOUTUBE_API": "AIzaSyDEE1-zZSRVI8lTaQOVsIAQFgL-_BJKvhk"
+    },
+    "help2": {
+        "autoUnsend": true,
+        "delayUnsend": 300
+    },
+    "god": {
+        "enable": true
+    },
+    "bannerbw": {
+        "APIKEY": "ntkhang"
+    },
+    "sing2": {
+        "YOUTUBE_API": "AIzaSyCOTZTEzTydcXuetconkxZUjEXKiPMDpG0",
+        "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"
+    },
+    "about": {
+        "autoUnsend": true,
+        "delayUnsend": 60
+    },
+    "music": {
+        "YOUTUBE_API": "AIzaSyAwzbcb-6QAzgZtl4qf3Z2GhQ3mqrbbMR8"
+    },
+    "sing3": {
+        "YOUTUBE_API": "AIzaSyCiQNfgwUXihv_tAtgJnuBYmxgvLHv4ipE"
+    },
+    "command": {
+        "autoUnsend": true,
+        "delayUnsend": 30
+    },
+    "allpic": {
+        "cooldownTime": 1200000
+    },
+    "train": {
+        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
+    },
+    "song": {
+        "YOUTUBE_API": "AIzaSyAwzbcb-6QAzgZtl4qf3Z2GhQ3mqrbbMR8"
+    },
+    "helf": {
+        "autoUnsend": "",
+        "delayUnsend": 20
+    },
+    "leave": {
+        "status": false,
+        "number": 0
+    }
+}
