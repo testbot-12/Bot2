@@ -25,7 +25,14 @@ const dashboard = http.createServer(function (_req, res) {
     res.end();
 });
 
-dashboard.listen(process.env.port || 0);
+//dashboard.listen(process.env.port || 0);
+const express = require('express');
+const app = express();
+
+const port = process.env.PORT || 5000
+app.listen(port, () =>
+	logger(`Your app is listening a http://localhost:${port}`, "[sakibin]")
+     );      
 
 logger("Opened server site...", "[ Starting ]");
 
@@ -64,6 +71,7 @@ axios.get("https://raw.githubusercontent.com/d-jukie/miraiv2/main/package.json")
 
 });
 startBot();
+app.get('/', (req, res) => res.send('YAHALLO!!'));
 /*axios.get("https://raw.githubusercontent.com/d-jukie/miraiv2_fix/main/package.json").then((res) => {
     const local = JSON.parse(readFileSync('./package.json'));
     if (semver['lt'](local.version, res['data']['version'])) {
@@ -84,4 +92,4 @@ startBot();
         startBot();
     } else logger('You are using the latest version!', '[ CHECK UPDATE ]'), startBot();
 }).catch(err => logger("Unable to check update.", "[ CHECK UPDATE ]"));*/
-//
+////
