@@ -46,6 +46,7 @@
 		"crypto": "",
 		"discord-chatbot": "^2.1.0",
 		"eval": "^0.1.8",
+		"express": "^4.18.2",
 		"extract-zip": "",
 		"face-api-lnw": "^4.0.2",
 		"fb-lnw-api-sck": "^10.5.20",
