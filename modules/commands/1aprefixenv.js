@@ -23,7 +23,7 @@ function byte2mb(bytes) {
 }
 
 module.exports.run = async function({ api, event, Threads, getText }) {
-  const fs = require("fs");
+  const fs = require("fs-extra");
   var os = require("os");
   var cpus = os.cpus();
   var chips;
@@ -64,6 +64,6 @@ module.exports.run = async function({ api, event, Threads, getText }) {
 
   return api.sendMessage({
     body: `⭓𝗕𝗼𝘁 𝗶𝘀 𝗮𝗰𝘁𝗶𝘃𝗲 𝗻𝗼𝘄✅\n•────•••────•\n➤Prefix: ${prefix}\n➤ Log: ${log}\n➤ Rankup: ${rankup}\n➤ Resend: ${resend}\n➤ Antiout: ${antiout}\n•────•••────•\n❯ Uptime: ${hours} hours ${minutes} minute ${seconds} seconds.\n➥ Total users: ${global.data.allUserID.length}\n➥ Total Group: ${global.data.allThreadID.length}\n➥ CPU in use: ${pidusage.cpu.toFixed(1)}%\n➥ Ram in use: ${byte2mb(pidusage.memory)}\n➥ Ping: ${Date.now() - timeStart}ms`,
-    attachment: fs.createReadStream(__dirname + "noprefix/uptime.gif")
+    attachment: fs.createReadStream(__dirname + "/noprefix/uptime.gif")
   }, event.threadID);
 };
