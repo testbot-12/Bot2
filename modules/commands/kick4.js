@@ -3,7 +3,7 @@ module.exports.config = {
   version: "1.0.0",
   hasPermssion: 1,
   credits: "D-Jukie",
-  description: "kick member",
+  description: "kick member from group",
   commandCategory: "admin",
   usages: "[tag/reply/all]",
   cooldowns: 0
