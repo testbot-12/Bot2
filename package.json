@@ -1,128 +1,84 @@
-[
-    {
-        "key": "dbln",
-        "value": "%7B%22100056475082077%22%3A%22B5qz7clM%22%7D",
-        "domain": "facebook.com",
-        "path": "/login/device-based/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "datr",
-        "value": "yIwXZSQ-9QtFxMbzHkUbMZA_",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "sb",
-        "value": "yIwXZa9UGzEQVu4pDYh9edUm",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "ps_n",
-        "value": "0",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "ps_l",
-        "value": "0",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "vpd",
-        "value": "v1%3B680x360x2",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "locale",
-        "value": "es_LA",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "fr",
-        "value": "0izXmloMOPwd8QK80.AWW_pZ249I7MpSsY8_OZgkuvAlI.BluTN0..AAA.0.0.Bl_HZA.AWVKapR07p0",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "c_user",
-        "value": "100056475082077",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "xs",
-        "value": "36%3AD_teQGq1_IvEjg%3A2%3A1711044160%3A-1%3A5370",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "m_page_voice",
-        "value": "100056475082077",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "wd",
-        "value": "360x680",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "zsh",
-        "value": "ASS8Nnu3_GNN1bLglfzcFAQaKc1tLML6I6XRFpYfhTUfniaj5uVB5vr9XBJEDso4OusNtKW68AdhTrxOWnYxXM4kZJ8AAb5ChXdsDCo_ehDnOI3h__qVcqAE7O35jzE2fl8W0AM-gXGhwyaNEolhJ9IinLHjTQoI1jAt5teXQO_QSKnWnwTLVnoXKD1H-kEohFYSg5kW8xnrKEqOJ6FLOCjbVrbEmYAUS0JjDPH5fbLJjTqqjwoHmM9JAKE5yoEuoJitN6BXyMPV9FA7HwzUH7EPdtYuU2uP30eT9vfYJq90D6fV8A46xvpDVJIYyN9alAS_rpH2",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    },
-    {
-        "key": "wl_cbv",
-        "value": "v2%3Bclient_version%3A2445%3Btimestamp%3A1711125827",
-        "domain": "facebook.com",
-        "path": "/",
-        "hostOnly": false,
-        "creation": "2024-03-22T16:45:09.039Z",
-        "lastAccessed": "2024-03-22T16:45:09.039Z"
-    }
-]
+{
+	"name": "UmaruBot",
+	"version": "9.7.5",
+	"description": "A simple Facebook Messenger Bot made by me(CatalizCS) and my brother SpermLord.",
+	"main": "mirai.js",
+	"scripts": {
+		"start": "node index.js",
+		"login": "node login",
+		"test": "node --trace-warnings --use_strict --async-stack-traces mirai"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/umaruchan0x1861/umarubot1.1.1"
+	},
+	"keywords": [
+		"bot",
+		"facebook",
+		"projectmirai",
+		"messenger",
+		"mirai",
+		"catalizcs",
+		"spermlord",
+		"miraipr0ject"
+	],
+	"author": "John Lester",
+	"license": "GPL-3.0",
+	"bugs": {
+		"url": "https://github.com/umaruchan0x1861/umarubot1.1.1/issues"
+	},
+	"homepage": "https://github.com/umaruchan0x1861/umarubot1.1.1",
+	"dependencies": {
+		"@distube/ytdl-core": "^4.13.3",
+	  "@replit/database": "^2.0.2",
+		"@supercharge/strings": "^1.28.0",
+		"akaneko": "^5.2.3",
+		"axios": "^0.26.1",
+		"canvas": "^2.11.2",
+		"chalk": "^4.1.2",
+		"cheerio": "^0.22.0",
+		"child_process": "^1.0.2",
+		"colors": "^1.4.0",
+		"cron": "^2.1.0",
+		"discord-chatbot": "^2.1.0",
+		"eval": "^0.1.8",
+		"extract-zip": "",
+		"face-api-lnw": "^4.0.2",
+		"fb-lnw-api-sck": "^10.5.20",
+		"fca-sakibin-remarsted": "^3.5.4",
+		"fs-extra": "^10.1.0",
+		"gradient-string": "^2.0.2",
+		"gtts": "^0.2.1",
+		"jimp": "^0.22.10",
+		"knights-canvas": "^1.3.7-a",
+		"lyrics-finder": "^21.7.0",
+		"minimist": "",
+		"moment-timezone": "^0.5.37",
+		"nhentai-api": "^3.4.3",
+		"node-cron": "^3.0.2",
+		"node-opus": "^0.3.3",
+		"node-schedule-tz": "^1.2.1-4",
+		"opusscript": "0.0.8",
+		"path": "",
+		"pidusage": "^3.0.0",
+		"ping-monitor": "^0.6.2",
+		"readline": "",
+		"request": "^2.88.2",
+		"semver": "^7.5.4",
+		"sequelize": "^6.29.0",
+		"simple-youtube-api": "^5.2.1",
+		"sqlite3": "^5.1.6",
+		"stream": "0.0.2",
+		"string-similarity": "",
+		"to": "^0.2.9",
+		"totp-generator": "",
+		"vtuber-wiki": "^1.1.5",
+		"wikijs": "^6.3.3",
+		"youtube-search-api": "^1.1.0",
+		"youtubei.js": "^6.2.0",
+		"yt-search": "^2.10.4",
+		"ytdl-core": "^4.11.2",
+		"zalgo": "0.0.1"
+	},
+	"devDependencies": {}
+}
