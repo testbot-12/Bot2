@@ -1,11 +1,11 @@
 module.exports.config = { usePrefix: true,
-  name: "pairv2",
+  name: "pair",
   version: "1.0.0", 
   hasPermssion: 0,
   credits: "Hungcho edit by Hungdz30cm",
   description: "Ghep doi ngau nhien",
   commandCategory: "love", 
-  usages: "", 
+  usages: "[@mention]", 
   cooldowns: 15,
 };
 module.exports.run = async function({ api, event, args, Users, Threads, Currencies }) {
@@ -27,19 +27,20 @@ module.exports.run = async function({ api, event, args, Users, Threads, Currenci
         var arraytag = [];
                 arraytag.push({id: event.senderID, tag: namee});
                 arraytag.push({id: id, tag: name});
-        api.changeNickname(`😘👉🔐🔐 ${name} Property 🔐🔐👈😘`, event.threadID, event.senderID);
-        api.changeNickname(`😘👉🔐🔐 ${namee} Property🔐🔐👈😘`, event.threadID, id);
+        //api.changeNickname(`😘👉🔐🔐 ${name} Property 🔐🔐👈😘`, event.threadID, event.senderID);
+        //api.changeNickname(`😘👉🔐🔐 ${namee} Property🔐🔐👈😘`, event.threadID, id);
         var sex = await data[id].gender;
-        var gender = sex == 2 ? "Male🧑" : sex == 1 ? "Female👩‍🦰" : "Trần Đức Bo";
-        Currencies.setData(event.senderID, options = {money: money - 500})
+        var gender = sex == 2 ? "Male🧑" : sex == 1 ? "Female👩‍🦰" : "gay";
+        Currencies.setData(event.senderID, options = {money: money - 10})
         let Avatar = (await axios.get( `https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: "arraybuffer" } )).data;
             fs.writeFileSync( __dirname + "/cache/avt.png", Buffer.from(Avatar, "utf-8") );
         let Avatar2 = (await axios.get( `https://graph.facebook.com/${event.senderID}/picture?height=720&width=720&access_token=6628568379%7Cc1e620fa708a1d5696fb991c1bde5662`, { responseType: "arraybuffer" } )).data;
             fs.writeFileSync( __dirname + "/cache/avt2.png", Buffer.from(Avatar2, "utf-8") );
         var imglove = [];
               imglove.push(fs.createReadStream(__dirname + "/cache/avt.png"));
+              imglove.push(fs.createReadStream(__dirname + "/noprefix/giflove.gif"));
               imglove.push(fs.createReadStream(__dirname + "/cache/avt2.png"));
-        var msg = {body: `Complete the pairing bar you lost 500 dollars!\your partner is of the same gender: ${gender}\nDual ratio: ${tle}\n`+namee+" "+"❤️"+" "+name, mentions: arraytag, attachment: imglove}
+        var msg = {body: `Complete the pairing bar you lost 10 dollars!\your partner is of the same gender: ${gender}\nDual ratio: ${tle}\n`+namee+" "+"❤️"+" "+name, mentions: arraytag, attachment: imglove}
         return api.sendMessage(msg, event.threadID, event.messageID)
       }
                                         }
