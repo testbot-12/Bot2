@@ -70,7 +70,7 @@
 		"semver": "^7.5.4",
 		"sequelize": "^6.29.0",
 		"simple-youtube-api": "^5.2.1",
-		"sqlite3": "^5.1.6",
+		"sqlite3": "^5.1.7",
 		"stream": "0.0.2",
 		"string-similarity": "",
 		"to": "^0.2.9",
