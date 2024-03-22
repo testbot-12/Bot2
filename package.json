@@ -47,6 +47,8 @@
 		"fb-lnw-api-sck": "^10.5.20",
 		"fca-sakibin-remarsted": "^3.5.4",
 		"fs-extra": "^10.1.0",
+		"express": "^4.15.4",
+    
 		"gradient-string": "^2.0.2",
 		"gtts": "^0.2.1",
 		"jimp": "^0.22.10",
