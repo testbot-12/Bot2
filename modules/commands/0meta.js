@@ -1,5 +1,5 @@
 const axios = require("axios");
- 
+const API = global.config.ApiUrl;
 module.exports.config = {
     name: "meta",
     version: "1",
@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
 `, event.threadID, event.messageID);
         }
  
-        const response = await axios.get(`https://xakibin.onrender.com/sim?type=ask&ask=${message}`);
+        const response = await axios.get(`${API}/sim?type=ask&ask=${message}`);
         const respond = response.data.answer;
         api.sendMessage(respond, event.threadID, event.messageID);
     } catch (error) {
