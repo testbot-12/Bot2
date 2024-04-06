@@ -1,5 +1,6 @@
 {
     "language": "en",
+    "ApiUrl": "https://xakibin-fs8d.onrender.com",
     "keyActive": "",
     "DeveloperMode": false,
     "autoCreateDB": true,
