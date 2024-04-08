@@ -1,4 +1,4 @@
-const API = "https://sakibin.onrender.com";
+const API = global.config.ApiUrl;
 
 module.exports.config = { usePrefix: true,
   name: "cover",
@@ -45,7 +45,7 @@ const inputText = args.join(" ").trim().replace(/\s+/g, " ").replace(/(\s+\|)/g,
       fs.writeFileSync(pathSave, Buffer.from(imageBuffer));
       api.sendMessage(
         {
-    body: `✅Your Cover was created by Sakibin API at ${time}🔥\n➤Name:${text1} ${text2}\n➤Email:${text3}\n➤Number:${text4}\n➤Adress:${text5}\n➤Color:${color}`,
+    body: `✅Your Cover was created by Sakibin Server at ${time}🔖`,
           attachment: fs.createReadStream(pathSave),
         },
         event.threadID,
