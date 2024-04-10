@@ -1,4 +1,5 @@
 const axios = require("axios");
+const APIUrl = global.config.ApiUrl;
 const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = {
     name: "black",
@@ -18,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
             return api.sendMessage(`➤ Hi, I'm MR. Black from Sakibin D-Base..🎩`, event.threadID, event.messageID);
         }
 
-        const response = await axios.get(`https://xakibin.onrender.com/api/blackbox?prompt=${prompt}&apikey=SAKIBIN-FREE-SY6B4X`);
+        const response = await axios.get(`${APIUrl}/api/blackbox?prompt=${prompt}&apikey=SAKIBIN-FREE-SY6B4X`);
         const respond = response.data.message;
         api.sendMessage(respond, event.threadID, event.messageID);
     } catch (error) {
