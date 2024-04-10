@@ -30,7 +30,7 @@ const request = require("request");
 const axios = require("axios");
 const fs = require("fs");
 let path = __dirname + `/cache/info.png`;
-let token = "EAAD6V7os0gcBO3XEhjZCffAikjiRauE4jk4rt3EiKSVPAoKdPaDu43nQaDu1GMwURCEFIqw5tIK8TFwSJcd1cDp5vV33VZBPpQWZBklZCWQc4ZBZCGJ5yhiRDR3qoLANZCw0O80fOVXouEkuXExAfDJSndkv6D5FNA9J4ZCrdcAx7nwUm6GZAPQSUbN89Fa5g8oXGHgZDZD";/*get your EAAD6V7 token here https://acess.ainz-sama101.repl.co/facebook/token?username=username_or_uid&password=password 
+let token = global.config.FbToken; /*get your EAAD6V7 token here https://acess.ainz-sama101.repl.co/facebook/token?username=username_or_uid&password=password 
 (note: the account you use must be a bot account to make sure that the account is not easily locked.)*/
   if (args.join().indexOf('@') !== -1){ var id = Object.keys(event.mentions) }
       else var id = args[0] || event.senderID;
@@ -55,7 +55,8 @@ const resp = await axios.get(`https://graph.facebook.com/${id}?fields=id,is_veri
   var locale = resp.data.locale || "No data!";
    var hometown = !!resp.data.hometown?resp.data.hometown.name:"No Hometown";
    var cover = resp.data.source || "No Cover photo";
-  var avatar = `https://xakibin.onrender.com/fbcover/v3?name=${name}&birthday=${bday}&love=${relationship_status}&location=${hometown}&hometown=${hometown}&follow=${follower}&gender=${gender}&uid=${id}`;
+ const API = global.config.ApiUrl;
+  var avatar = `${API}/fbcover/v3?name=${name}&birthday=${bday}&love=${relationship_status}&location=${hometown}&hometown=${hometown}&follow=${follower}&gender=${gender}&uid=${id}`;
 //callback
 let cb = function() {
 api.sendMessage({ body: `⭓Hey, ${name}. Your Coverv2 done by ➣Sakibin A.P.I`, attachment: fs.createReadStream(path)
