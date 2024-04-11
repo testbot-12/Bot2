@@ -1,4 +1,4 @@
-const APIURL = "https://sakibin.onrender.com";
+const APIURL = global.config.ApiUrl;
 const APIKEY = "SAKIBIN-FREE-SY6B4X";
 module.exports.config = {
     name: "wasted",
