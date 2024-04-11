@@ -28,7 +28,7 @@ module.exports.run = async ({api, event, args }) => {
     imgData.push(fs.createReadStream(imgPath));
   }
   api.sendMessage({
-    body: "Images created by bing A.i\nPowered by Dall.E from Sakibin A.P.I",
+    body: "Images created by bing Copilot from Sakibin A.P.I🔥",
     attachment: imgData
   }, threadID, () => {
     // Cleanup
