@@ -1,3 +1,4 @@
+const API = global.config.ApiUrl;
 const { loadImage, createCanvas } = require("canvas");
 const fs = require("fs");
 const request = require("request");
@@ -35,7 +36,7 @@ module.exports.run = async ({ api, event, args }) => {
   const avtAnime = (await axios.get(encodeURI(lengthchar[text1 - 1].imgAnime), { responseType: "arraybuffer" })).data;
   fs.writeFileSync(pathAva, Buffer.from(avtAnime, "utf-8"));
 
-  const background = (await axios.get(`https://sakibingo--sinha-api.repl.co/ctx/logo${text1}.png`, { responseType: "arraybuffer" })).data;
+  const background = (await axios.get(`${API}/ctx/logo${text1}.png`, { responseType: "arraybuffer" })).data;
   fs.writeFileSync(pathImg, Buffer.from(background, "utf-8"));
 
   const getFont = async (url, fontName) => {
