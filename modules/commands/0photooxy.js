@@ -1,4 +1,4 @@
-const APIURL = "https://sakibin.onrender.com";
+const APIURL = global.config.ApiUrl;
 const IMAGE_CACHE_PATH = __dirname + "/cache";
 const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = {
