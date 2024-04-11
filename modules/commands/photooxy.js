@@ -1,4 +1,4 @@
-const APIURL = "https://xakibin.onrender.com";
+const APIURL = global.config.ApiUrl;
 const APIKEY = "SAKI-BIN-SWT56X"
 module.exports.config = { usePrefix: true,
   name: "photo",
