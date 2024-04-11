@@ -27,7 +27,7 @@ module.exports.run = async function({
         if (event.messageReply.attachments[0].type != "photo") return api.sendMessage("🍆This is Not a Photo,Bhuuuhhhhh🐸", event.threadID, event.messageID);
 
         const content = (event.type == "message_reply") ? event.messageReply.attachments[0].url : args.join(" ");
-        const MtxApi = ["upvVjvWoZdiKX3HjaZ318SKs","bFbyCLHHtaRCLf1vGTjbpVFG"]
+        const MtxApi = ["7He7x3EcKPWiusVxSQRYTuiB","upvVjvWoZdiKX3HjaZ318SKs"]
         const inputPath = path.resolve(__dirname, 'cache', `photo.png`);
          await image({
         url: content, dest: inputPath
