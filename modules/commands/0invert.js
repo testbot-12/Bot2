@@ -1,4 +1,4 @@
-const APIURL = global.confing.ApiUrl;
+const APIURL = global.config.ApiUrl;
 const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = {
     name: "invert",
