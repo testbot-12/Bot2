@@ -1,3 +1,5 @@
+const APIUrl = global.config.ApiUrl;
+
 module.exports.config = { usePrefix: true,
     name: "allpic",
     version: "0.0.1",
@@ -46,55 +48,55 @@ module.exports.config = { usePrefix: true,
     const axios = require("axios");
     
              if(event.body == "1"){
-         var url = "https://xakibin.onrender.com/images/anime?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/anime?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "2"){
-         var url = "https://xakibin.onrender.com/images/chitanda?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/chitanda?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "3"){
-         var url = "https://xakibin.onrender.com/images/cosplay?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/cosplay?apikey=SAKIBIN-FREE-SY6B4X"
 }
           else if(event.body == "4"){
-          var url = "https://xakibin.onrender.com/images/gaixinhvn?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/gaixinhvn?apikey=SAKIBIN-FREE-SY6B4X"
 }
           else if(event.body == "5"){
-          var url = "https://xakibin.onrender.com/images/girl?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/girl?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "6"){
-          var url = "https://xakibin.onrender.com/images/jimmy?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/jimmy?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "7"){
-          var url = "https://xakibin.onrender.com/images/kana?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/kana?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "8"){
-          var url = "https://xakibin.onrender.com/images/khanhhuyen?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/khanhhuyen?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "9"){
-         var url = "https://xakibin.onrender.com/images/kurumi?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/kurumi?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "10"){
-         var url = "https://xakibin.onrender.com/images/lebong?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/lebong?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "11"){
-         var url = "https://xakibin.onrender.com/images/lnd?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/lnd?apikey=SAKIBIN-FREE-SY6B4X"
 }
         else if(event.body == "12"){
-          var  url = "https://xakibin.onrender.com/images/loli?apikey=SAKIBIN-FREE-SY6B4X"
+          var  url = "${APIUrl}/images/loli?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "13"){
-          var  url = "https://xakibin.onrender.com/images/ngoctrinh?apikey=SAKIBIN-FREE-SY6B4X"
+          var  url = "${APIUrl}/images/ngoctrinh?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "14"){
-         var url = "https://xakibin.onrender.com/images/rem?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/rem?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "15"){
-         var url = "https://xakibin.onrender.com/images/sagiri?apikey=SAKIBIN-FREE-SY6B4X"
+         var url = "${APIUrl}/images/sagiri?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "16"){
-          var url = "https://xakibin.onrender.com/images/siesta?apikey=SAKIBIN-FREE-SY6B4X"
+          var url = "${APIUrl}/images/siesta?apikey=SAKIBIN-FREE-SY6B4X"
 }
          else if(event.body == "17"){
-           var url = "https://xakibin.onrender.com/images/umaru?apikey=SAKIBIN-FREE-SY6B4X"
+           var url = "${APIUrl}/images/umaru?apikey=SAKIBIN-FREE-SY6B4X"
 }
 
     switch(handleReply.type){
