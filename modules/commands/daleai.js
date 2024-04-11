@@ -1,3 +1,5 @@
+const APIURL = global.config.BingUrl;
+  
 module.exports.config = { 
   usePrefix: true,
   name: "bing",
@@ -16,7 +18,7 @@ module.exports.run = async ({api, event, args }) => {
   let query = args.join(" ");
   if (!query) return api.sendMessage("put text/query", threadID, messageID);
   let path = __dirname + `/cache/`; // Change path for storing multiple images
-  const res = await axios.get(`https://sakibin.onrender.com/bing?prompt=${query}`);
+  const res = await axios.get(`${APIURL}/bing?prompt=${query}`);
   const data = res.data.result;
   if (data.length < 4) return api.sendMessage("Not enough images found", threadID, messageID);
   var imgData = [];
