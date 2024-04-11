@@ -1,5 +1,7 @@
 {
     "language": "en",
+    "BingUrl": "",
+    "FbToken": "",
     "ApiUrl": "https://xakibin-fs8d.onrender.com",
     "keyActive": "",
     "DeveloperMode": false,
