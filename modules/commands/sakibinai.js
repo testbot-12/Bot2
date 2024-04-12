@@ -1,4 +1,4 @@
-const APIURL = "https://xakibin.onrender.com";
+const APIURL = global.config.ApiUrl;
 
 module.exports.config = { 
   usePrefix: true,
@@ -36,7 +36,7 @@ module.exports.run = async function ({ api, event, args }) {
     .then((response) => {
       // Accessing the message from the response
       const message = response.data.message;
-      const answer = `✅ | Reply from ${aiType}🎓\n✨ | Your answer:\n${message}\n❍ 𝗣𝗼𝘄𝗲𝗿𝗳𝘂𝗹 𝗔𝗶 𝗠𝗼𝗱𝘂𝗹𝗲 𝗯𝘆 @𝗦𝗮𝗸𝗶𝗯𝗶𝗻 𝗦𝗶𝗻𝗵𝗮`;
+      const answer = `✅ | Reply from ${aiType}🎓\n✨ | Your answer:\n${message}\n❍𝗠𝗼𝗱𝘂𝗹𝗲 𝗯𝘆 @𝗦𝗮𝗸𝗶𝗯𝗶𝗻 𝗦𝗶𝗻𝗵𝗮`;
       api.sendMessage(answer, event.threadID, event.messageID); // Using answer instead of message
     })
     .catch((error) => {
