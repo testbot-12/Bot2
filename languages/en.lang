@@ -60,12 +60,12 @@ users.needObject=Have to be an Object
 
 handleCommand.userBanned=You are unable to use bot!\n%1\n%2
 handleCommand.threadBanned=Your thread are unable to use bot!\n%1\n%2
-handleCommand.commandNotExist=❗Command doesn’t exit in Sakibin system, Try "%1"❓
+handleCommand.commandNotExist= Command Not Found☹️, Try "%1"✨
 handleCommand.commandThreadBanned=Your thread is unable to use command "%1"
 handleCommand.commandUserBanned=You are unable to use command "%1"
 handleCommand.threadNotAllowNSFW=Your thread is not allowed to use NSFW commands
 handleCommand.cantGetInfoThread=Can't get your thread's info, error: %1
-handleCommand.permssionNotEnough=❗ Only Moderator can use "/%1" Command📛
+handleCommand.permssionNotEnough= [❗] Only Owners or Admin can use "/%1" :)
 handleCommand.cantSetMessageReaction=Having some unexpected error at setMessageReaction, error: %1
 handleCommand.executeCommand=[ %1 ] Command used: %2 by user: %3 at thread: %4 | Args included: %5 | Processing time: %6ms
 handleCommand.commandError=Having some unexpected error when using command %1, error: %2
