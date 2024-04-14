@@ -6,7 +6,7 @@ module.exports.config = {
   version: "1.0.",
   hasPermssion: 1,
   credits: "jameslim",
-  description: "generate image from polination",
+  description: "generate image from Bing",
   commandCategory: "ai",
   usages: "(prompt?)",
   cooldowns: 2,
