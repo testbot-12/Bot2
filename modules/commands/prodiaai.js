@@ -1,3 +1,4 @@
+const APIURL = global.config.ApiUrl
 module.exports.config = { 
   usePrefix: true,
   name: "prodia",
@@ -16,7 +17,7 @@ const fs = require('fs-extra');
   let query = args.join(" ");
   if (!query) return api.sendMessage("Wrong prompt. Try\n/prodia a cat.\nRemake by @Sakibin Sinha", threadID, messageID);
 let path = __dirname + `/cache/prodia.png`;
-  const poli = (await axios.get(`https://xakibin.onrender.com/api/prodia?prompt=${query}`, {
+  const poli = (await axios.get(`${APIURL}/api/prodia?prompt=${query}`, {
     responseType: "arraybuffer",
   })).data;
   fs.writeFileSync(path, Buffer.from(poli, "utf-8"));
