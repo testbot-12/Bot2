@@ -1,57 +1,138 @@
-/**
- * @author
- * @warn Do not edit code or edit credits
- * @apikey Reg key tại: https://meewmeew.info/site
- */
-module.exports.config = { usePrefix: true,
-    name: "mim",
-    version: "4.3.7",
-    hasPermssion: 0,
-    credits: "TANVIR TAMIM", //change api sim Hoang Giap
-    description: "Chat with the best AI Chat - Simsimi by Simcard",
-    commandCategory: "ai",
-    usages: "[args]",
-    cooldowns: 5,
-    dependencies: {
-        axios: ""
-    }
-}
+const API = global.config.ApiUrl;
 
-
-async function simsimi(a, b, c) {
-    const d = global.nodemodule.axios, g = (a) => encodeURIComponent(a);
-    try {
-        var { data: j } = await d({ url: `https://xakibin.onrender.com/sim?type=ask&ask=${g(a)}`, method: "GET" });
-        return { error: !1, data: j }
-    } catch (p) {
-        return { error: !0, data: {} }
-    }
+module.exports.config = {
+  name: 'meta2',
+  version: '1.0.2',
+  hasPermssion: 0,
+  credits: 'SI TANVIR 6X',
+  description: 'Talk to the most lost Meta',
+  commandCategory: 'General',
+  usages: '[question]/[on,off]',
+  cooldowns: 5,
 }
-module.exports.onLoad = async function () {
-    "undefined" == typeof global && (global = {}), "undefined" == typeof global.simsimi && (global.simsimi = new Map);
-};
-module.exports.handleEvent = async function ({ api: b, event: a }) {
-    const { threadID: c, messageID: d, senderID: e, body: f } = a, g = (e) => b.sendMessage(e, c, d);
-     let bot = global.config.OTHERBOT;
-  
-    if (global.simsimi.has(c) && !bot.includes(a.senderID)) {
-        if (e == b.getCurrentUserID() || "" == f || d == global.simsimi.get(c)) return;
-        var { data: h, error: i } = await simsimi(f, b, a);
-        return !0 == i ? void 0 : !1 == h.success ? g(h.error) : g(h.success)
+const axios = require('axios')
+module.exports.onLoad = function () {
+  const { writeFileSync: _0x127a64, existsSync: _0x330889 } =
+      global.nodemodule['fs-extra'],
+    { resolve: _0x56cb17 } = global.nodemodule.path,
+    _0x233f90 = require(process.cwd() + '/utils/log'),
+    _0x32a586 = _0x56cb17(__dirname, 'cache', 'sim.json')
+  if (!_0x330889(_0x32a586)) {
+    const _0x55699a = { sim: {} }
+    _0x127a64(_0x32a586, JSON.stringify(_0x55699a, null, 4))
+  } else {
+    const _0x313a1a = require(_0x32a586)
+    if (!_0x313a1a.hasOwnProperty('sim')) {
+      _0x313a1a.sim = {}
     }
+    _0x127a64(_0x32a586, JSON.stringify(_0x313a1a, null, 4))
+  }
 }
-module.exports.run = async function ({ api: b, event: a, args: c }) {
-    const { threadID: d, messageID: e } = a, f = (c) => b.sendMessage(c, d, e);
-    if (0 == c.length) return f("\u26a0\ufe0f\u0059\u006f\u0075 \u0068\u0061\u0076\u0065 \u006e\u006f\u0074 \u0065\u006e\u0074\u0065\u0072\u0065\u0064 \u0074\u0068\u0065 \u006d\u0065\u0073\u0073\u0061\u0067\u0065");
-    switch (c[0]) {
-        case "on":
-            return global.simsimi.has(d) ? f("\u26a0\ufe0f\u0059\u006f\u0075 \u0068\u0061\u0076\u0065 \u006e\u006f\u0074 \u0074\u0075\u0072\u006e\u0065\u0064 \u006f\u0066\u0066 \u0074\u0068\u0065 \u0073\u0069\u006d\u002e\n\n\u004d\u0061\u0064\u0065 \u0062\u0079\u003a \u004a\u006f\u0068\u006e \u0050\u0061\u0075\u006c \u0043\u0061\u0069\u0067\u0061\u0073") : (global.simsimi.set(d, e), f("\u2705\u0053\u0075\u0063\u0063\u0065\u0073\u0073\u0066\u0075\u006c\u006c\u0079 \u0065\u006e\u0061\u0062\u006c\u0065\u0064 \u0073\u0069\u006d\u002e"));
-        case "off":
-            return global.simsimi.has(d) ? (global.simsimi.delete(d), f("\u2705\u0054\u0068\u0065 \u0073\u0069\u006d \u0068\u0061\u0073 \u0062\u0065\u0065\u006e \u0073\u0075\u0063\u0063\u0065\u0073\u0073\u0066\u0075\u006c\u006c\u0079 \u0074\u0075\u0072\u006e\u0065\u0064 \u006f\u0066\u0066.")) : f("\u26a0\ufe0f\u0059\u006f\u0075 \u0068\u0061\u0076\u0065 \u006e\u006f\u0074 \u0074\u0075\u0072\u006e\u0065\u0064 \u006f\u006e \u0074\u0068\u0065 \u0073\u0069\u006d\u002e\n\n\u004d\u0061\u0064\u0065 \u0062\u0079 \u004a\u006f\u0068\u006e \u0050\u0061\u0075\u006c \u0043\u0061\u0069\u0067\u0061\u0073");
-        default:
-            var { data: g, error: h } = await simsimi(c.join(" "), b, a);
-            return !0 == h ? void 0 : !1 == g.success ? f(g.error) : f(g.success);
+module.exports.handleEvent = async ({
+  api: _0x345747,
+  event: _0x59652a,
+  args: _0x8b1c2c,
+  Threads: _0x2654d0,
+}) => {
+  const { threadID: _0x34e548, messageID: _0x2db174 } = _0x59652a,
+    { resolve: _0x61fee5 } = global.nodemodule.path,
+    _0xf69761 = _0x61fee5(__dirname, '../commands', 'cache', 'sim.json'),
+    { sim: _0x2c2d59 } = require(_0xf69761)
+  _0x2c2d59.hasOwnProperty(_0x34e548) &&
+    _0x2c2d59[_0x34e548] == true &&
+    _0x59652a.senderID !== _0x345747.getCurrentUserID() &&
+      axios
+        .get(
+          encodeURI(
+            `${API}/sim?type=ask&ask=` +
+              _0x59652a.body
+          )
+        )
+        .then((_0x2853f7) => {
+          if (
+            _0x2853f7.data.answer == 'null' ||
+            _0x2853f7.data.answer == "I don't understand what you say🤔"
+          ) {
+            _0x345747.sendMessage(
+              "I doesn't understand, Please teach 😤",
+              _0x34e548,
+              _0x2db174
+            )
+          } else {
+            return _0x345747.sendMessage(
+              _0x2853f7.data.answer,
+              _0x34e548,
+              _0x2db174
+            )
+          }
+        })
+}
+module.exports.run = async ({
+  api: _0x558d7f,
+  event: _0x4b8775,
+  args: _0x5d1bb0,
+  Threads: _0x1a9503,
+}) => {
+  const { writeFileSync: _0x31b567 } = global.nodemodule['fs-extra'],
+    { resolve: _0x17624f } = global.nodemodule.path,
+    _0x1356d7 = _0x17624f(__dirname, 'cache', 'sim.json'),
+    { threadID: _0x48eb5b, messageID: _0x1387b2 } = _0x4b8775,
+    _0x4cf3de = require(_0x1356d7),
+    { sim: _0x579cb7 } = _0x4cf3de
+  if (!_0x5d1bb0[0]) {
+    _0x558d7f.sendMessage(
+      '~ à¦¹à§‡ à¦¬à§à¦¯à¦¾à¦ªà§à¦¸ à¦¬à¦²à§‹ à¦—à§‹\uD83E\uDEE6',
+      _0x48eb5b,
+      _0x1387b2
+    )
+  } else {
+    switch (_0x5d1bb0[0]) {
+      case 'on': {
+        _0x579cb7[_0x48eb5b] = true
+        _0x558d7f.sendMessage(
+          'Successfully enabled Meta.✅',
+          _0x48eb5b,
+          _0x1387b2
+        )
+        break
+      }
+      case 'off': {
+        _0x579cb7[_0x48eb5b] = false
+        _0x558d7f.sendMessage(
+          'Meta has been successfully disabled!🔴',
+          _0x48eb5b,
+          _0x1387b2
+        )
+        break
+      }
+      default:
+        axios
+          .get(
+            encodeURI(
+              `${API}/sim?type=ask&ask=` +
+                _0x5d1bb0.join(' ')
+            )
+          )
+          .then((_0x1a3939) => {
+            if (
+              _0x1a3939.data.answer == 'null' ||
+              _0x1a3939.data.answer == "I don't understand what you say🤔"
+            ) {
+              _0x558d7f.sendMessage(
+                "I don't understand 😤",
+                _0x48eb5b,
+                _0x1387b2
+              )
+            } else {
+              return _0x558d7f.sendMessage(
+                _0x1a3939.data.answer,
+                _0x48eb5b,
+                _0x1387b2
+              )
+            }
+          })
+        break
     }
-};
-
-//re-made by tanvir ahmed xyz
+    _0x31b567(_0x1356d7, JSON.stringify(_0x4cf3de, null, 4))
+  }
+}
