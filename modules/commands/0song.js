@@ -49,7 +49,7 @@ module.exports.config = { usePrefix: true,
     usages: "[searchMusic]",
     cooldowns: 0,
      envConfig: {
-		"YOUTUBE_API": "AIzaSyAwzbcb-6QAzgZtl4qf3Z2GhQ3mqrbbMR8"
+		"YOUTUBE_API": "AIzaSyAa5nOJTL9Mem19xDlw4T9WnJEXPoLUF1M"
 	}
 };
 
