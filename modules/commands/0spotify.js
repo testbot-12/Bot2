@@ -30,7 +30,7 @@ module.exports.run = async function ({ api, event, args }) {
         const [{ name, track, download, image }] = response.data;
 
         if (name) {
-            const filePath = `${__dirname}/../cache/${Date.now()}.mp3`;
+            const filePath = `${__dirname}/cache/${event.senderID}.mp3`;
             const writeStream = fs.createWriteStream(filePath);
 
             const audioResponse = await axios.get(download, { responseType: 'stream' });
