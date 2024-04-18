@@ -12,8 +12,13 @@ module.exports.config = {
   cooldowns: 2,
 };
 module.exports.run = async ({api, event, args }) => {
+  const adminID = '100065445284007';
   const axios = require('axios');
   const fs = require('fs-extra');
+  if (event.senderID !== adminID) {
+        return api.sendMessage("This Bing A.i command is only for my boss SAKIBIN.❗", event.threadID, event.messageID);
+  }
+  
   let { threadID, messageID } = event;
   let query = args.join(" ");
   if (!query) return api.sendMessage("put text/query", threadID, messageID);
