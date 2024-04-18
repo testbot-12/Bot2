@@ -39,7 +39,7 @@ module.exports.run = async function ({ api, event, args }) {
 
             writeStream.on('finish', () => {
                 api.sendMessage({
-                    body: `🎧 Here's your music from Spotify. Enjoy listening!\n\nTitle: ${name}\nTrack: ${track}\nDownload: ${download}\nImage: ${image}\n\n💿 Now Playing...`,
+                    body: `🎧 Here's your music from Spotify. Enjoy listening!\n\nTitle: ${name}\n\n💿 Now Playing...`,
                     attachment: fs.createReadStream(filePath),
                 }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
             });
