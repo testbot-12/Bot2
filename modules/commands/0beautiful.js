@@ -1,7 +1,7 @@
 const APIURL = global.config.ApiUrl;
 const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = {
-    name: "beautiful",
+    name: "delete",
     version: "2.0.0",
     hasPermsion: 0,
     credits: "SAKIBIN",
