@@ -80,8 +80,8 @@
 		"wikijs": "^6.3.3",
 		"youtube-search-api": "^1.1.0",
 		"youtubei.js": "^6.2.0",
-		"yt-search": "^2.10.4",
-		"ytdl-core": "^4.11.5",
+		"yt-search": "",
+		"ytdl-core": "^4.11.2",
 		"zalgo": "0.0.1"
 	},
 	"devDependencies": {}
