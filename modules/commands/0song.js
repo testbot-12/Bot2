@@ -1,5 +1,5 @@
 const fs = require('fs');
-const ytdl = require('@distube/ytdl-core');
+const ytdl = require('ytdl-core');
 const { resolve } = require('path');
 const axios = require('axios')
 async function downloadMusicFromYoutube(link, path) {
