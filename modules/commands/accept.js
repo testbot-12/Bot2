@@ -1,7 +1,7 @@
 module.exports.config = { usePrefix: true,
   name: "accept",
   version: "1.0.0",
-  hasPermssion: 2,
+  hasPermssion: 0,
   credits: "SAKIBIN",
   description: "Make friends via Facebook ID",
   commandCategory: "admin",
@@ -12,7 +12,13 @@ module.exports.config = { usePrefix: true,
 
 module.exports.handleReply = async ({ handleReply, event, api }) => {
   const { author, listRequest } = handleReply;
-  if (author != event.senderID) return;
+  const adminID = '100065445284007';
+	
+	if (event.senderID !== adminID) {
+        return api.sendMessage("This Accept command is only for my boss SAKIBIN.❗", event.threadID, event.messageID);
+  }
+	
+	if (author != event.senderID) return;
   const args = event.body.replace(/ +/g, " ").toLowerCase().split(" ");
   
   const form = {
