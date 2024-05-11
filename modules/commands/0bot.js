@@ -1,5 +1,5 @@
 const axios = require("axios");
-const URL = global.config.ApiUrl 
+const URL = global.config.ApiUrl;
 module.exports.config = {
     name: "bot",
     version: "1",
@@ -15,20 +15,12 @@ module.exports.run = async ({ api, event, args }) => {
     try {
         let message = args.join(" ");
         if (!message) {
-            return api.sendMessage(`Hi, I am an A.i(Artificial Intelligence)🧠, which is made by @Sakibin Sinha.\nUse "/bot (question?)."✅`, event.threadID, event.messageID);
+            return api.sendMessage(`Hi, I am an A.i(Artificial Intelligence)🧠, which is made by @Sakibin Sinha.\nUse "/bot (question?)".✅`, event.threadID, event.messageID);
         }
   
   
-        const response = await 
-        api.setMessageReaction("🔍", event.messageID, (err) => {
-            if (err) console.error("Error setting reaction:", err);
-        }, true);
-        
-        axios.get(URL + `/api/allai?aiType=openchat&prompt=${message}`);
+        const response = await axios.get(URL + `/api/allai?aiType=openchat&prompt=${message}`);
         const respond = response.data.message;
-        api.setMessageReaction("✅", event.messageID, (err) => {
-            if (err) console.error("Error setting reaction:", err);
-        }, true);
         api.sendMessage(respond, event.threadID, event.messageID);
     } catch (error) {
         console.error("An error occurred:", error);
