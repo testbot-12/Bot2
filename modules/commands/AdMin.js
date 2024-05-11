@@ -18,7 +18,7 @@ module.exports.languages = {
     "en": {
         "listAdmin": '➤ ADMIN LIST:\n🎓Owner: Sakibin Sinha\n•══════════════•\n%1',
         "notHavePermssion": '[Sakibin] You have no permission to use "%1"',
-        "addedNewAdmin": '✅ | Added %1 new admin.\n%2',
+        "addedNewAdmin": '❗ | Added %1 new admin.\n%2',
         "removedAdmin": '📛 | Removed %1 Admin Sakibin Bot.\n%2',
       "listId":'•═════•UID•═════•\n%1\n•═════•LIST•═════•'
     }
@@ -108,7 +108,7 @@ if (!allowedUsers.includes(senderID)) return api.sendMessage("❗Sakibin Shudhu 
                 for (const id of mention) {
                     ADMINBOT.push(id);
                     config.ADMINBOT.push(id);
-listAdd.push(`[👤] ${event.mentions[id]}\n[🆗] ${id}\n[⏰] ${time}`);
+listAdd.push(`✅ | ${event.mentions[id]}\n🆔 | ${id}\n⏳ | ${time}`);
                 };
 
                 writeFileSync(configPath, JSON.stringify(config, null, 4), 'utf8');
@@ -119,7 +119,7 @@ listAdd.push(`[👤] ${event.mentions[id]}\n[🆗] ${id}\n[⏰] ${time}`);
                 config.ADMINBOT.push(content[0]);
                 const name = await Users.getNameUser(content[0]);
                 writeFileSync(configPath, JSON.stringify(config, null, 4), 'utf8');
-                return api.sendMessage(getText("addedNewAdmin", 1, `[👤] ${name}\n[🆗] ${content[1]}\n[⏰] ${time}`), threadID, messageID);
+                return api.sendMessage(getText("addedNewAdmin", 1, `✅ | ${name}\n🆔 | ${content[1]}\n⏳ | ${time}`), threadID, messageID);
             }
             else return global.utils.throwError(this.config.name, threadID, messageID);
         }
