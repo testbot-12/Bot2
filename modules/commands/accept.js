@@ -1,7 +1,7 @@
 module.exports.config = { usePrefix: true,
   name: "accept",
   version: "1.0.0",
-  hasPermssion: 0,
+  hasPermssion: 1,
   credits: "SAKIBIN",
   description: "Make friends via Facebook ID",
   commandCategory: "admin",
