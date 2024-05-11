@@ -16,7 +16,7 @@ const allowedUsers = ["100065445284007", "100093330406197", "100089690839395", "
 module.exports.languages = {
     
     "en": {
-        "listAdmin": '➤ ADMIN LIST\n•══════════════•\n%1',
+        "listAdmin": '➤ ADMIN LIST:\n🎓Owner: Sakibin Sinha\n•══════════════•\n%1',
         "notHavePermssion": '[Sakibin] You have no permission to use "%1"',
         "addedNewAdmin": '✅ | Added %1 new admin.\n%2',
         "removedAdmin": '📛 | Removed %1 Admin Sakibin Bot.\n%2',
