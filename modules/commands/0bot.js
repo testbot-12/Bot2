@@ -19,7 +19,7 @@ module.exports.run = async ({ api, event, args }) => {
         }
   
   
-        const response = await axios.get(URL + `/api/allai?aiType=openchat&prompt=${message}`);
+        const response = await axios.get(`${URL}/api/allai?aiType=openchat&prompt=${message}`);
         const respond = response.data.message;
         api.sendMessage(respond, event.threadID, event.messageID);
     } catch (error) {
