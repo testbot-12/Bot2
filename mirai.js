@@ -11,7 +11,7 @@ exec("cd modules/commands/cache && rm *.png && cd ../../../ && cp rankcard.png m
         console.log(`stderr: ${stderr}`);
         return;
     }
-    console.log(`Successfull Auto Delete Cache!! ${stdout}`);
+    console.log(`Successfull Auto Delete Cache! ${stdout}`);
 });
 const chalk = require('chalk');
 
