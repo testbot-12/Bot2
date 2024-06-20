@@ -60,7 +60,7 @@
 		"moment-timezone": "^0.5.37",
 		"nhentai-api": "^3.4.3",
 		"node-cron": "^3.0.2",
-		"node-opus": "^0.3.3",
+		
 		"node-schedule-tz": "^1.2.1-4",
 		"opusscript": "0.0.8",
 		"path": "",
