@@ -1,5 +1,5 @@
 const fs = require('fs');
-const ytdl = require('@distube/ytdl-core');
+const ytdl = require('ytdl-core');
 const { resolve } = require('path');
 
 async function downloadMusicFromYoutube(link, path) {
@@ -32,7 +32,7 @@ async function downloadMusicFromYoutube(link, path) {
 
 module.exports.config = {
     usePrefix: true,
-    name: "play",
+    name: "play2",
     version: "1.0.0",
     hasPermssion: 0,
     credits: "D-Jukie",
