@@ -10,10 +10,7 @@ async function downloadMusicFromYoutube(link, path) {
     resolveFunc = resolve;
     rejectFunc = reject;
   });
-    ytdl(link, {
-            filter: format =>
-                format.quality == 'tiny' && format.audioBitrate == 48 && format.hasAudio == true
-        }).pipe(fs.createWriteStream(path))
+    ytdl(link, {filter: 'audioonly'}).pipe(fs.createWriteStream(path))
         .on("close", async () => {
             var data = await ytdl.getInfo(link)
             var result = {
@@ -48,7 +45,7 @@ module.exports.handleReply = async function ({ api, event, handleReply }) {
         if (fs.statSync(path).size > 26214400) return api.sendMessage('The file cannot be sent because the capacity is greater than 25MB.', event.threadID, () => fs.unlinkSync(path), event.messageID);
         api.unsendMessage(handleReply.messageID)
         return api.sendMessage({ 
-		body: `🎵 Title: ${data.title}\n🎶 Name Channel : ${data.author}\n⏱️ Time: ${this.convertHMS(data.dur)}\n🦋 Fixed by @Sakibin Sinha`,
+		body: `🎵 Title: ${data.title}\n🎶 Name Channel : ${data.author}\n⏱️ Time: ${this.convertHMS(data.dur)}\n🦋 Fixed by @Hadi Muktadir`,
             attachment: fs.createReadStream(path)}, event.threadID, ()=> fs.unlinkSync(path), 
          event.messageID)
             
