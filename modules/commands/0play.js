@@ -47,7 +47,7 @@ module.exports.run = async function ({ api, event, args }) {
 
                     response.data.on('end', () => {
                         api.sendMessage({
-                            body: `🎧 | Music: ${name}\n⚡ | Flash download server by fb.me/imsakibin007`,
+                            body: `🎵 | Music: ${name}\n⚡ | Flash download server by fb.me/imsakibin007`,
                             attachment: fs.createReadStream(filePath),
                         }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
                     });
@@ -62,7 +62,7 @@ module.exports.run = async function ({ api, event, args }) {
                 }
             };
 
-            await downloadMusic(apiUrl, filePath); // Use apiUrl to directly download the mp3 file
+            await downloadMusic(url, filePath); // Use apiUrl to directly download the mp3 file
         } else {
             api.sendMessage("❓ | Sorry, couldn't find the requested music on music.", event.threadID);
         }
