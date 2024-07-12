@@ -28,7 +28,7 @@ module.exports.handleReaction = async function({ api, event, Threads, handleReac
 		data["PREFIX"] = handleReaction.PREFIX;
 		await Threads.setData(threadID, { data });
 		await global.data.threadData.set(String(threadID), data);
-		await api.changeNickname(`【 ${handleReaction.PREFIX} 】➺ ${global.config.BOTNAME}`, threadID, api.getCurrentUserID());
+		await api.changeNickname(`» ${handleReaction.PREFIX} « ♤ ${global.config.BOTNAME}`, threadID, api.getCurrentUserID());
 		api.unsendMessage(handleReaction.messageID);
 		return api.sendMessage(getText("successChange", handleReaction.PREFIX), threadID, messageID);
 	} catch (e) {
