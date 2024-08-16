@@ -30,23 +30,23 @@ module.exports.config = {
   
     console.log(nameThread)
   
-    var formReport = "[⚜️] 𝙉𝙤𝙩𝙞𝙘𝙚 𝙁𝙧𝙤𝙢 𝘼 𝙂𝙧𝙤𝙪𝙥 [❄️]" +
-      "\n[🈵] 𝙂𝙧𝙤𝙪𝙥 𝙉𝙖𝙢𝙚: " + nameThread +
-      "\n[🆔] 𝙂𝙧𝙤𝙪𝙥 𝙐𝙞𝙙: " + event.threadID +
-      "\n[⚠️] 𝘼𝙘𝙩𝙞𝙤𝙣: {task}" +
-      "\n[➡️] 𝙋𝙚𝙧𝙨𝙤𝙣 𝙉𝙖𝙢𝙚: " + nameUser +
-      "\n[➡️] 𝙃𝙞𝙨 𝙐𝙞𝙙: " + event.author +
-      "\n[🕔] 𝙏𝙞𝙢𝙚: " + time + "",
+    var formReport = "📜 | Sakibin Sir," +
+      "\n 👥 Group Name: " + nameThread +
+      "\n 🎁 Group Uid: " + event.threadID +
+      "\n 🛡️ Action: {task}" +
+      "\n 👤 User Name: " + nameUser +
+      "\n 🆔 User id: " + event.author +
+      "\n\n» " + time + " «",
       task = "";
     switch (event.logMessageType) {
       case "log:thread-name": {
-          newName = event.logMessageData.name || "𝙉𝙖𝙢𝙚 𝙉𝙤𝙩 𝙀𝙭𝙞𝙨𝙩";
+          newName = event.logMessageData.name || "No Name";
           //task = "Người dùng thay đổi tên nhóm thành " + newName + "";
           await Threads.setData(event.threadID, {name: newName});
           break;
       }
       case "log:subscribe": {
-        if (event.logMessageData.addedParticipants.some(i => i.userFbId == botID)) task = "✅𝘼𝙙𝙙𝙚𝙙 𝙄𝙣 𝙉𝙚𝙬 𝙂𝙧𝙤𝙪𝙥✅";
+        if (event.logMessageData.addedParticipants.some(i => i.userFbId == botID)) task = "Activate✅";
         break;
       }
       case "log:unsubscribe": {
@@ -54,13 +54,13 @@ module.exports.config = {
           if(event.senderID == botID) return;
           const data = (await Threads.getData(event.threadID)).data || {};
           data.banned = true;
-          var reason = "❎ Click the bot freely, without permissi🚫";
+          var reason = "Your group Banned for kick, Request Admin to unban❎";
           data.reason = reason || null;
           data.dateAdded = time;
           await Threads.setData(event.threadID, { data });
           global.data.threadBanned.set(event.threadID, { reason: data.reason, dateAdded: data.dateAdded });
   
-          task = "❎𝙆𝙞𝙘𝙠𝙚𝙙 𝙏𝙝𝙚 𝘽𝙤𝙩❎"
+          task = "Deactivate❎"
         }
         break;
       }
