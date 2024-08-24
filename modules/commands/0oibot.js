@@ -20,12 +20,8 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
   var tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
   var rand = tl[Math.floor(Math.random() * tl.length)]
   
- if (event.body.indexOf("bot") == 0 ||
-
-(event.body.indexOf("Robot") == 0) ||
-(event.body.indexOf("বত") == 0) ||
-(event.body.indexOf("বট") == 0) ||
-(event.body.indexOf("Bot") == 0)) {
+ if (event.body.indexOf("////)((") == 0 ||
+(event.body.indexOf("/)((()))/") == 0)) {
     var msg = {
       body: `╭────────⭓\n│👻 ${name}\n│💌 ${rand}\n╰───────────➣`
     }
