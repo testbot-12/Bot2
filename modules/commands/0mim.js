@@ -38,11 +38,7 @@ module.exports.handleEvent = async function ({ api, event }) {
       const imageURL = attachment.url;
       question = await convertImageToText(imageURL);
 
-      const userName = await Users.getNameUser(event.senderID);
-
-  const tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
-  var randrepl = tl[Math.floor(Math.random() * tl.length)]
-
+      
 
       if (!question) {
         api.sendMessage('❗ Unable to convert the photo, please ensure your image has clear text before sending.', threadID, messageID);
@@ -56,6 +52,12 @@ module.exports.handleEvent = async function ({ api, event }) {
   }
 
   if (!question) {
+
+const userName = await Users.getNameUser(event.senderID);
+
+  const tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
+  var randrepl = tl[Math.floor(Math.random() * tl.length)];
+
     api.sendMessage("${userName}, ${randrepl}", event.threadID);
     return;
   }
@@ -80,4 +82,3 @@ module.exports.handleEvent = async function ({ api, event }) {
 };
 
 module.exports.run = async function ({ api, event }) {};
-
