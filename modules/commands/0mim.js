@@ -23,10 +23,15 @@ async function convertImageToText(imageURL) {
   }
 }
 
-module.exports.handleEvent = async function ({ api, event }) {
+module.exports.handleEvent = async function ({ api, event, args, Threads, Users }) {
   if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") || event.body.startsWith("bot") || event.body.startsWith("Bot") || event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("Ai") || event.body.startsWith("ai"))) return;
 
   const { threadID, messageID, type, messageReply, body } = event;
+
+const userName = await Users.getNameUser(event.senderID);
+
+  const tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
+  var randrepl = tl[Math.floor(Math.random() * tl.length)];
 
   let question = '';
   let hasImage = false;
@@ -52,13 +57,7 @@ module.exports.handleEvent = async function ({ api, event }) {
   }
 
   if (!question) {
-
-const userName = await Users.getNameUser(event.senderID);
-
-  const tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
-  var randrepl = tl[Math.floor(Math.random() * tl.length)];
-
-    api.sendMessage("${userName}, ${randrepl}", event.threadID);
+    api.sendMessage(`${userName}, ${randrepl}`, event.threadID);
     return;
   }
 
