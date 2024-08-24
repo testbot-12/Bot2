@@ -13,7 +13,7 @@ module.exports.config = {
 module.exports.run = async function ({ api, event, args }) {  
   const category = args[0];  
   if (!category) {    
-    return api.sendMessage(`━━━━━━━━━━━━\n ||      S A K I B I N      ||\n━━━━━━━━━━━━\n➤ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 LIST:\n\n📂 /help group\n📂 /help ai\n📂 /help media\n📂 /help fun\n📂 /help love\n📂 /help canvas\n📂 /help admin\n📂 /help system\n📂 /help meme\n\n••••Use a prompt to get a list📝`, event.threadID, event.messageID);  
+    return api.sendMessage(`━━━━━━━━━━━━\n ||      S A K I B I N      ||\n━━━━━━━━━━━━\n➤ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 LIST:\n\n📂 /help group\n📂 /help ai\n📂 /help media\n📂 /help fun\n📂 /help love\n📂 /help canvas\n📂 /help admin\n📂 /help system\n📂 /help meme\n\n🔥Use a prompt to get a list📝`, event.threadID, event.messageID);  
   }  
   if (category === `group`) {    
     return api.sendMessage(`➣ Here is all group related Commands✨\n\n/call (call owner)\n/help\n/antiout on/off\n/group\n/tid\n/uid\n/rank\n/uid2 @mention\n/pp @mention\n/top user/money\n/balance @mention\n/bank register/check/trade`, event.threadID, event.messageID);  
