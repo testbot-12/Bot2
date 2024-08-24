@@ -1,7 +1,7 @@
 module.exports.config = {
   name: "kick",
   version: "1.0.0",
-  hasPermssion: 1,
+  hasPermssion: 2,
   credits: "D-Jukie",
   description: "kick member from group",
   commandCategory: "admin",
@@ -15,9 +15,10 @@ module.exports.run = async function({
   event,
   Threads
 }) {
-  if (event.senderID !== "100065445284007") {
+  //if (event.senderID !== "100065445284007") {
         return api.sendMessage("This command is only for my boss SAKIBIN. ❗", event.threadID, event.messageID);
     }
+
   var {
     participantIDs
   } = (await Threads.getData(event.threadID)).threadInfo;
