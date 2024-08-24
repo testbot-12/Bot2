@@ -24,7 +24,7 @@ async function convertImageToText(imageURL) {
 }
 
 module.exports.handleEvent = async function ({ api, event }) {
-  if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") || event.body.startsWith("Soha") || event.body.startsWith("soha") || event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("Ai") || event.body.startsWith("ai"))) return;
+  if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") || event.body.startsWith("bot") || event.body.startsWith("Bot") || event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("Ai") || event.body.startsWith("ai"))) return;
 
   const { threadID, messageID, type, messageReply, body } = event;
 
@@ -50,24 +50,24 @@ module.exports.handleEvent = async function ({ api, event }) {
   }
 
   if (!question) {
-    api.sendMessage("Hello👋, I am Model-v3 Demo GPT-4, designed and remodeled by Sakibin.\n\nHow can I assist you today?", event.threadID);
+    api.sendMessage("Hello, I am GPT-4, designed and remodeled by Sakibin.\n\nHow can I assist you today?💙", event.threadID);
     return;
   }
 
   try {
     api.sendTypingIndicator(event.threadID); 
     const UID = event.senderID;
-    const response = await axios.get(`https://markdevs-api.onrender.com/gpt4?uid=${UID}&prompt=${encodeURIComponent(question)}`);
-    const reply = response.data.gpt4;
+    const response = await axios.get(`https://gpt-19zs.onrender.com/gpt4?prompt=${encodeURIComponent(question)}`);
+    const reply = response.message;
 
     if (reply) {
       api.sendMessage(reply, event.threadID);
     } else {
-      api.sendMessage("🤖 Demo GPT-4 couldn't provide a response to your query.", event.threadID);
+      api.sendMessage("GPT-4 couldn't provide a response to your query.", event.threadID);
     }
   } catch (error) {
     console.error(error);
-    api.sendMessage("🔴 An error occurred. Please try again later.", event.threadID);
+    api.sendMessage("Error: API Expired🥲", event.threadID);
   }
 };
 
