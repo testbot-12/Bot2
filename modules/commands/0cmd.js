@@ -6,7 +6,7 @@ module.exports.config = {
   credits: "Sakibin",
   description: "Command Category",
   commandCategory: "guide",
-  usages: "useful/media/canvas",
+  usages: "group/ai/media/fun/love/canvas/admin/system/meme",
   cooldowns: 2,
 };
 
@@ -15,9 +15,10 @@ module.exports.run = async function ({ api, event, args }) {
   const category = args[0];
   
   if (!category) {
-    return api.sendMessage("━━━━━━━━━━━━
- ||      S A K B I N      ||
- ━━━━━━━━━━━━
+    return api.sendMessage(`
+━━━━━━━━━━━━
+ ||      S A K I B I N      ||
+━━━━━━━━━━━━
 ➤ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 LIST:
 
 📂 /help group
@@ -30,7 +31,8 @@ module.exports.run = async function ({ api, event, args }) {
 📂 /help system
 📂 /help meme
 
-••••Use a prompt to get list📝", event.threadID, event.messageID);
+••••Use a prompt to get a list📝
+`, event.threadID, event.messageID);
   }
 
   if (category === "group") {
@@ -79,7 +81,7 @@ module.exports.run = async function ({ api, event, args }) {
 /marriedv3 @mention
 /marriedv4 @mention
 /marriedv5 @mention
-/confress @mention
+/confess @mention
 /couple @mention", event.threadID, event.messageID);
   }
 
@@ -141,18 +143,6 @@ Mention or reply to a pic.
 /pixelate @mention
 /rainbow @mention
 /wasted @mention", event.threadID, event.messageID);
-  }
-
-if (category === "system") {
-    return api.sendMessage("➣ System handle ⚙️⚡
-
-/uptime
-/setprefix (prefix?)
-prefix
-/restart
-/flash
-/config
-/speedtest", event.threadID, event.messageID);
   }
 
 if (category === "meme") {
