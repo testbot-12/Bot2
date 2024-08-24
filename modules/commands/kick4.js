@@ -16,8 +16,7 @@ module.exports.run = async function({
   Threads
 }) {
   //if (event.senderID !== "100065445284007") {
-        //return api.sendMessage("This command is only for my boss SAKIBIN. ❗", event.threadID, event.messageID);
-    }
+        //return api.sendMessage("This command is only for my boss SAKIBIN. ❗", event.threadID, event.messageID);}
 
   var {
     participantIDs
