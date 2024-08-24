@@ -66,7 +66,7 @@ module.exports.handleEvent = async function ({ api, event }) {
  
     const UID = event.senderID;
     const response = await axios.get(`https://gpt-19zs.onrender.com/gpt4?prompt=${encodeURIComponent(question)}`);
-    const reply = response.message;
+    const reply = response.data.message;
 
     if (reply) {
       api.sendMessage(reply, event.threadID);
