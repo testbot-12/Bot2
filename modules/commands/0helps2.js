@@ -1,5 +1,5 @@
 module.exports.config = { usePrefix: true,
-	name: "help",
+	name: "cmd",
 	version: "1.0.2",
 	hasPermssion: 0,
 	credits: "Mirai Team",
