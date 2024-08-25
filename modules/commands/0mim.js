@@ -24,7 +24,7 @@ async function convertImageToText(imageURL) {
 }
 
 module.exports.handleEvent = async function ({ api, event, args, Threads, Users }) {
-  if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") || event.body.startsWith("bot") || event.body.startsWith("Bot") || event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("Ai") || event.body.startsWith("ai"))) return;
+  if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") ||  event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("bot") || event.body.startsWith("Bot"))) return;
 
   const { threadID, messageID, type, messageReply, body } = event;
 
