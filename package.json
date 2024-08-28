@@ -82,6 +82,7 @@
 		"youtubei.js": "^6.2.0",
 		"yt-search": "",
 		"ytdl-core": "",
+		"qs": "",
 		"zalgo": "0.0.1"
 	},
 	"devDependencies": {}
