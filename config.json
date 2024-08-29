@@ -3,6 +3,7 @@
     "BingUrl": "https://bing-57ro.onrender.com",
     "FbToken": "",
     "ApiUrl": "https://xakibin-fs8d.onrender.com",
+    "ApiUrlX":"https://gpt-19zs.onrender.com",
     "keyActive": "",
     "DeveloperMode": false,
     "autoCreateDB": true,
