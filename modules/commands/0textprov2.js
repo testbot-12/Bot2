@@ -1,6 +1,6 @@
-const APIURL = global.config.ApiUrl;
+const APIURL = global.config.ApiUrlX;
 const IMAGE_CACHE_PATH = __dirname + "/cache";
-const APIKEY = "SAKI-BIN-SWT56X";
+//const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = {
   usePrefix: true,
   name: "textpro",
@@ -35,7 +35,7 @@ module.exports.run = async function ({ api, event, args }) {
     const endNumber = parseInt(inputText) * 10;
     const imgData = [];
     for (let i = startNumber; i <= endNumber; i++) {
-      const apiEndpoint = `/api/textpro?number=${i}&text=${Ntext}&apikey=${APIKEY}`;
+      const apiEndpoint = `/ephoto?number=${i}&text=${Ntext}`;
 
       const imagePath = `${IMAGE_CACHE_PATH}/${i}.png`;
       const response = await axios.get(APIURL + apiEndpoint, { responseType: 'arraybuffer' });
