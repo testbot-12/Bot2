@@ -15,7 +15,7 @@ module.exports.run = async ({ api, event, args }) => {
 
 	if (args[0] === "get") {
 		try {
-			const response = await axios.get("https://imtiaz.x-sakibin.repl.co/get");
+			const response = await axios.get("https://gpt-19zs.onrender.com/get");
 			const responseData = response.data.email;
 			api.sendMessage(`✅Here is your email:\n\n💌Email:${responseData}\n\n🖥️Created by Sakibin_X_Imtiaz Server✅`, event.threadID);
 		} catch (error) {
@@ -25,7 +25,7 @@ module.exports.run = async ({ api, event, args }) => {
 	} else if (args[0].toLowerCase() === "inbox" && args.length === 2) {
 		const email = args[1];
 		try {
-			const response = await axios.get(`https://imtiaz.x-sakibin.repl.co/inbox/${email}`);
+			const response = await axios.get(`https://gpt-19zs.onrender.com/inbox/${email}`);
   const data = response.data;
 
 const inboxMessages = data[0].body;
