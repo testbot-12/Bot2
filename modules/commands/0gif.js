@@ -1,5 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 module.exports.config = {
   name: 'gif',
@@ -22,6 +23,12 @@ module.exports.run = async function ({ api, event, args }) {
 
   const query = args.join(' ');
   const apiKey = 'QHv1qVaxy4LS3AmaNuUYNT9zr40ReFBI';
+  const cacheDir = path.join(__dirname, 'cache');
+
+  // Ensure the cache directory exists
+  if (!fs.existsSync(cacheDir)) {
+    fs.mkdirSync(cacheDir);
+  }
 
   try {
     const response = await axios.get('https://api.giphy.com/v1/gifs/search', {
@@ -33,30 +40,36 @@ module.exports.run = async function ({ api, event, args }) {
       },
     });
 
-    if (response.data && response.data.data && response.data.data.length > 0) {
-      const gifResults = response.data.data;
+    const gifResults = response.data?.data || [];
 
+    if (gifResults.length > 0) {
       const gifAttachments = [];
-      for (let i = 0; i < gifResults.length; i++) {
-        const gifData = gifResults[i];
-        const gifURL = gifData.images.original.url;
 
-        const path1 = `${__dirname}/cache/giphy${i}.gif`;
-        const getContent = (await axios.get(gifURL, { responseType: 'arraybuffer' })).data;
-        fs.writeFileSync(path1, Buffer.from(getContent, 'binary'));
-        gifAttachments.push(fs.createReadStream(path1));
-      }
+      try {
+        for (let i = 0; i < gifResults.length; i++) {
+          const gifData = gifResults[i];
+          const gifURL = gifData.images.original.url;
 
-      api.sendMessage(
-        {
-          attachment: gifAttachments,
-        },
-        threadID
-      );
+          const filePath = path.join(cacheDir, `giphy${i}.gif`);
+          const getContent = (await axios.get(gifURL, { responseType: 'arraybuffer' })).data;
+          fs.writeFileSync(filePath, Buffer.from(getContent, 'binary'));
+          gifAttachments.push(fs.createReadStream(filePath));
+        }
 
-      for (let i = 0; i < gifAttachments.length; i++) {
-        const pathToDelete = `${__dirname}/cache/giphy${i}.gif`;
-        fs.unlinkSync(pathToDelete);
+        await api.sendMessage(
+          {
+            attachment: gifAttachments,
+          },
+          threadID
+        );
+      } finally {
+        // Clean up files after sending
+        for (let i = 0; i < gifResults.length; i++) {
+          const filePath = path.join(cacheDir, `giphy${i}.gif`);
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+          }
+        }
       }
     } else {
       api.sendMessage('No GIFs found for the provided query.', threadID, messageID);
@@ -65,3 +78,4 @@ module.exports.run = async function ({ api, event, args }) {
     console.error(error);
     api.sendMessage('An error occurred while searching for GIFs.', threadID, messageID);
   }
+};
