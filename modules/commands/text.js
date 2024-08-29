@@ -1,5 +1,5 @@
-const APIURL = "https://sakibin.onrender.com";
-const APIKEY = "SAKI-BIN-SWT56X";
+const APIURL = "https://gpt-19zs.onrender.com";
+//const APIKEY = "SAKI-BIN-SWT56X";
 module.exports.config = { usePrefix: true,
   name: "text",
   version: "1.0.0",
@@ -22,10 +22,10 @@ module.exports.run = async function ({ api, event, args }) {
   const text = args.slice(1).join("");
 
   if (!number || isNaN(number)) {
-    return api.sendMessage("❗Use /text [no.] [text]\n❗Example:\n  /text 5 Sakibin\nTotal Text limit 150...", event.threadID, event.messageID);
+    return api.sendMessage("❗Use /text [no.] [text]\n❗Example:\n  /text 5 Sakibin\nTotal Text limit 10", event.threadID, event.messageID);
   }
 
-  const apiEndpoint = `/api/textpro?number=${number}&text=${text}&apikey=${APIKEY}`;
+  const apiEndpoint = `/ephoto?number=${number}&text=${text}`;
   const pathSave = __dirname + `/cache/server2.png`;
 
   api.sendMessage("", event.threadID, event.messageID);
@@ -37,7 +37,7 @@ module.exports.run = async function ({ api, event, args }) {
       fs.writeFileSync(pathSave, Buffer.from(imageBuffer));
       api.sendMessage(
         {
-    body: `✅ | Here is your editz.`,
+    body: `✅ | Here is your editz from Sakibin Server✨`,
           attachment: fs.createReadStream(pathSave),
         },
         event.threadID,
