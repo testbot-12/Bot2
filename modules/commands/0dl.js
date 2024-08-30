@@ -13,11 +13,8 @@ module.exports.config = {
   cooldowns: 3,
 };
 
-async function downloadVideo(videoUrl, threadID, messageID, api) {
+async function downloadVideo(videoUrl, threadID, api) {
   try {
-    // Set a "downloading" reaction
-    await api.setMessageReaction("🔄", messageID, (err) => {}, true);
-
     const response = await axios.get(`https://gpt-19zs.onrender.com/alldl?url=${encodeURIComponent(videoUrl)}`);
     if (response.data.status) {
       const videoData = response.data.data;
@@ -35,10 +32,7 @@ async function downloadVideo(videoUrl, threadID, messageID, api) {
 
       videoResponse.data.pipe(videoStream);
 
-      videoStream.on('finish', async () => {
-        // Set a "done" reaction
-        await api.setMessageReaction("✅", messageID, (err) => {}, true);
-
+      videoStream.on('finish', () => {
         api.sendMessage({
           body: `Here is your downloaded video: ${videoTitle}`,
           attachment: fs.createReadStream(videoPath),
@@ -47,27 +41,26 @@ async function downloadVideo(videoUrl, threadID, messageID, api) {
         });
       });
     } else {
-      await api.setMessageReaction("❌", messageID, (err) => {}, true);
       api.sendMessage("Unable to download the video. Please ensure the link is correct.", threadID);
     }
   } catch (error) {
     console.error(error);
-    await api.setMessageReaction("❌", messageID, (err) => {}, true);
     api.sendMessage("Error: Failed to download the video.", threadID);
   }
 }
 
-module.exports.handleEvent = async function ({ api, event }) {
+module.exports.handleEvent = async function ({ api, event, args, Threads, Users }) {
   const { threadID, messageID, body } = event;
 
   // Check if the message contains a TikTok, Facebook, or Instagram link
-  const regex = /(https?:\/\/(?:[a-zA-Z0-9-]+\.)?(tiktok\.com|facebook\.com|instagram\.com)\/[^\s]+)/gi;
+ 
+const regex = /(https?:\/\/(?:[a-zA-Z0-9-]+\.)?(tiktok\.com|facebook\.com|instagram\.com)\/[^\s]+)/gi;
 
   const match = body.match(regex);
 
   if (match) {
     const videoUrl = match[0]; // Take the first matched URL
-    await downloadVideo(videoUrl, threadID, messageID, api);
+    await downloadVideo(videoUrl, threadID, api);
   }
 };
 
