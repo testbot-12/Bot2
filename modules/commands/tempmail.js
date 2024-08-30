@@ -17,7 +17,7 @@ module.exports.run = async ({ api, event, args }) => {
 		try {
 			const response = await axios.get("https://gpt-19zs.onrender.com/get");
 			const responseData = response.data.email;
-			api.sendMessage(`✅Here is your email:\n\n💌Email:${responseData}\n\n🖥️Created by Sakibin_X_Imtiaz Server✅`, event.threadID);
+			api.sendMessage(`✅Here is your email:\n💌${responseData}\n\nHosting from Sakibin.`, event.threadID);
 		} catch (error) {
 			console.error("🔴 𝖤𝗋𝗋𝗈𝗋", error);
 			api.sendMessage("🔴 𝖴𝗇𝖾𝗑𝗉𝖾𝖼𝗍𝖾𝖽 𝖤𝗋𝗋𝗈𝗋, 𝖶𝗁𝗂𝗅𝖾 𝖿𝖾𝗍𝖼𝗁𝗂𝗇𝗀 𝖾𝗆𝖺𝗂𝗅 𝖺𝖽𝖽𝗋𝖾𝗌𝗌...", event.threadID);
