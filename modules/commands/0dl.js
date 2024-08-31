@@ -49,19 +49,44 @@ async function downloadVideo(videoUrl, threadID, api) {
   }
 }
 
-module.exports.handleEvent = async function ({ api, event, args, Threads, Users }) {
+module.exports.handleReaction = async function({ api, event, handleReaction }) {
+  try {
+    if (event.userID != handleReaction.author) return;
+    const { threadID, messageID } = event;
+
+    // Start downloading the video
+    await downloadVideo(handleReaction.videoUrl, threadID, api);
+    
+    // Remove the reaction handler from global data
+    api.unsendMessage(handleReaction.messageID);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports.handleEvent = async function({ api, event }) {
   const { threadID, messageID, body } = event;
 
   // Check if the message contains a TikTok, Facebook, or Instagram link
- 
-const regex = /(https?:\/\/(?:[a-zA-Z0-9-]+\.)?(tiktok\.com|facebook\.com|instagram\.com)\/[^\s]+)/gi;
-
+  const regex = /(https?:\/\/(?:[a-zA-Z0-9-]+\.)?(tiktok\.com|facebook\.com|instagram\.com)\/[^\s]+)/gi;
   const match = body.match(regex);
 
   if (match) {
     const videoUrl = match[0]; // Take the first matched URL
-    await downloadVideo(videoUrl, threadID, api);
+
+    // Notify the user and ask them to react to the message to start the download
+    api.sendMessage("I found a link. React to this message to download the video.", threadID, (error, messageInfo) => {
+      if (error) return console.error(error);
+
+      // Store the reaction handler data
+      global.client.handleReaction.push({
+        name: "videoDownloader",
+        messageID: messageInfo.messageID,
+        author: event.senderID,
+        videoUrl: videoUrl
+      });
+    });
   }
 };
 
-module.exports.run = async function ({ api, event }) {};
+module.exports.run = async function({ api, event }) {};
