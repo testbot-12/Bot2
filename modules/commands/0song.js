@@ -1,72 +1,54 @@
 const axios = require('axios');
 const fs = require('fs');
-const path = require('path');
 
 module.exports.config = {
-  name: "sing",
-  version: "1.1.0",
-  hasPermssion: 0,
-  credits: "Hridoy",
-  description: "Generate a song using the provided text and send the audio file.",
-  commandCategory: "sing",
-  usages: "[Song Name]",
-  cooldowns: 10,
-  dependencies: {
-    "axios": ""
-  }
+    name: "sing",
+    version: "1.0.0",
+    hasPermision: 0,
+    credits: "sakibin", 
+    description: "Search and play music from Spotify",
+    commandCategory: "spotify",
+    usage: "[song name]",
+    cooldowns: 5,
+    usages: "[song name]",
+    cooldown: 5,  
 };
 
-module.exports.run = async function({ api, event, args }) {
-  const { threadID, messageID } = event;
+module.exports.run = async function ({ api, event, args }) {
+    const listensearch = encodeURIComponent(args.join(" "));
+    const apiUrl = `https://api.elianabot.xyz/tools/ytmp3.php?music=${listensearch}`;
 
-  if (args.length === 0) {
-    return api.sendMessage('⚡️Please provide a song name to generate!', threadID, messageID);
-  }
+    if (!listensearch) return api.sendMessage("Please provide the name of the song you want to search.", event.threadID, event.messageID);
 
-  const songName = args.join(" ");
+    try {
+        // Set 🔍 reaction when download starts
+        api.setMessageReaction("🔍", event.messageID, (err) => {}, true);
 
-  try {
-    const sentMessage = await api.sendMessage('🎧 Downloading Music...', threadID);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    await api.unsendMessage(sentMessage.messageID);
+        const response = await axios.get(apiUrl);
+        const { music_data: { link, title }, video_title } = response.data;
 
-    const response = await axios.get(`https://api.elianabot.xyz/tools/ytmp3.php?music=${encodeURIComponent(songName)}`);
-    const { music_data } = response.data;
+        if (link) {
+            const filePath = `${__dirname}/cache/${event.senderID}.mp3`;
+            const writeStream = fs.createWriteStream(filePath);
 
-    //if (music_data.status !== "ok") {
-      //return api.sendMessage('⚡️An error occurred while generating the song. Please try again later.', threadID, messageID);
-// }
+            const audioResponse = await axios.get(link, { responseType: 'stream' });
 
-    const { link, title, duration, filesize } = music_data;
-    const minutes = Math.floor(duration / 60);
-    const seconds = Math.floor(duration % 60);
-    const formattedDuration = `${minutes}m ${seconds}s`;
-    const fileSizeMB = (filesize / (1024 * 1024)).toFixed(2);
+            audioResponse.data.pipe(writeStream);
 
-    const audioResponse = await axios({
-      url: link,
-      method: 'GET',
-      responseType: 'stream'
-    });
-
-    const filePath = path.resolve(__dirname, 'cache', `${title.replace(/[^a-z0-9]/gi, '_')}.mp3`);
-    const writer = fs.createWriteStream(filePath);
-    audioResponse.data.pipe(writer);
-
-    writer.on('finish', () => {
-      api.sendMessage({
-        body: `🎶 Here is your song: ${title}\nDuration: ${formattedDuration}\nFile Size: ${fileSizeMB} MB\nEnjoy the music!`,
-        attachment: fs.createReadStream(filePath)
-      }, threadID, () => fs.unlinkSync(filePath), messageID);
-    });
-
-    writer.on('error', (err) => {
-      console.error(err);
-      api.sendMessage("⚡️An error occurred while downloading the song. Please try again later.", threadID, messageID);
-    });
-
-  } catch (error) {
-    console.error("Error generating the song:", error);
-    api.sendMessage("⚡️An error occurred while generating the song. Please try again later.", threadID, messageID);
-  }
+            writeStream.on('finish', () => {
+                api.sendMessage({
+                    body: `🎵 | New YTDL api.\n\n🎶 Music: ${title || video_title}\n`,
+                    attachment: fs.createReadStream(filePath),
+                }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
+                
+                // Set ✅ reaction when download is done
+                api.setMessageReaction("✅", event.messageID, (err) => {}, true);
+            });
+        } else {
+            api.sendMessage("❓ | Sorry, couldn't find the requested music on Spotify.", event.threadID);
+        }
+    } catch (error) {
+        console.error(error);
+        api.sendMessage("🚧 | An error occurred while processing your request.", event.threadID);
+    }
 };
