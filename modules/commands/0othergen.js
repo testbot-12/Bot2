@@ -2,7 +2,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 module.exports.config = {
-  name: "imagine1",
+  name: "imagine",
   version: "1.0.4",
   hasPermssion: 0,
   credits: "Hridoy",
