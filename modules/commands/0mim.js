@@ -1,83 +1,92 @@
 const axios = require('axios');
 const fs = require('fs');
-const gtts = require('gtts');
+const path = require('path');
 
 module.exports.config = {
-  name: "gpt5",
-  version: "2.1.3",
+  name: "videoDownloader",
+  version: "1.0.0",
   hasPermission: 0,
-  credits: "sakibin",
-  description: "",
-  commandCategory: "ai",
-  usages: "( Model-v3 Demo GPT-4 )",
+  credits: "Sakibin",
+  description: "Automatically downloads videos from TikTok, Facebook, and Instagram when a link is provided.",
+  commandCategory: "utility",
+  usages: "Send a TikTok, Facebook, or Instagram video link to download.",
   cooldowns: 3,
 };
 
-async function convertImageToText(imageURL) {
+async function downloadVideo(videoUrl, threadID, api) {
   try {
-    const response = await axios.get(`https://hazeyy-api-img2text.kyrinwu.repl.co/api/recognition/image2text?input=${encodeURIComponent(imageURL)}`);
-    return response.data.extractedText;
+    const response = await axios.get(`https://gpt-19zs.onrender.com/alldl?url=${encodeURIComponent(videoUrl)}`);
+    if (response.data.status) {
+      const videoData = response.data.data;
+      const videoTitle = videoData.title;
+      const videoDownloadUrl = videoData.low;
+
+      const videoPath = path.resolve(__dirname, 'cache', `${videoTitle}.mp4`);
+      const videoStream = fs.createWriteStream(videoPath);
+
+      const videoResponse = await axios({
+        url: videoDownloadUrl,
+        method: 'GET',
+        responseType: 'stream',
+      });
+
+      videoResponse.data.pipe(videoStream);
+
+      videoStream.on('finish', () => {
+        api.sendMessage({
+          body: `Here is your downloaded video: ${videoTitle}`,
+          attachment: fs.createReadStream(videoPath),
+        }, threadID, () => {
+          fs.unlinkSync(videoPath); // Delete video file after sending
+        });
+      });
+    } else {
+      api.sendMessage("Unable to download the video. Please ensure the link is correct.", threadID);
+    }
   } catch (error) {
     console.error(error);
-    return null;
+    api.sendMessage("Error: Failed to download the video.", threadID);
   }
 }
 
-module.exports.handleEvent = async function ({ api, event, args, Threads, Users }) {
-  if (!(event.body.startsWith("sanju") || event.body.startsWith("Sanju") ||  event.body.startsWith("meta") || event.body.startsWith("Meta") || event.body.startsWith("bot") || event.body.startsWith("Bot"))) return;
-
-  const { threadID, messageID, type, messageReply, body } = event;
-
-const userName = await Users.getNameUser(event.senderID);
-
-  const tl = ["এত ডাকাডাকি করো কেনো", "তুমারে রাইতে ভালোবাসি🥺", "I Love You Baby😘", "BOT is made by Sakibin!", "হ্যা বলো জান শুনতেচি☺️","Ki hoise jaan😒", "/call can add admin!", "Jaaan tumi onek cute🫣","Ask amr mon vlo nei🥲","Hmm jan ummah😘😘","/report can nok owner!","Ato dako kno lojja lage to..","How can I assist you today!","/help to see helplist!"];
-  var randrepl = tl[Math.floor(Math.random() * tl.length)];
-
-  let question = '';
-  let hasImage = false;
-
-  if (type === 'message_reply') {
-    if (messageReply?.attachments[0]?.type === 'photo') {
-      hasImage = true;
-      const attachment = messageReply.attachments[0];
-      const imageURL = attachment.url;
-      question = await convertImageToText(imageURL);
-
-      
-
-      if (!question) {
-        api.sendMessage('❗ Unable to convert the photo, please ensure your image has clear text before sending.', threadID, messageID);
-        return;
-      }
-    } else {
-      question = messageReply?.body?.trim() || '';
-    }
-  } else { 
-    question = body.slice(5).trim();
-  }
-
-  if (!question) {
-    api.sendMessage(`${userName}, ${randrepl}`, event.threadID);
-    return;
-  }
-
+module.exports.handleReaction = async function({ api, event, handleReaction }) {
   try {
+    if (event.userID != handleReaction.author) return;
+    const { threadID, messageID } = event;
 
-    //api.sendTypingIndicator(event.threadID);
- 
-    const UID = event.senderID;
-    const response = await axios.get(`https://gpt-19zs.onrender.com/gpt4?prompt=${encodeURIComponent(question)}`);
-    const reply = response.data.message;
-
-    if (reply) {
-      api.sendMessage(reply, event.threadID);
-    } else {
-      api.sendMessage("GPT-4 couldn't provide a response to your query.", event.threadID);
-    }
-  } catch (error) {
-    console.error(error);
-    api.sendMessage("Error: API Expired🥲", event.threadID);
+    // Start downloading the video
+    await downloadVideo(handleReaction.videoUrl, threadID, api);
+    
+    // Remove the reaction handler from global data
+    api.unsendMessage(handleReaction.messageID);
+  } catch (e) {
+    console.log(e);
   }
 };
 
-module.exports.run = async function ({ api, event }) {};
+module.exports.handleEvent = async function({ api, event }) {
+  const { threadID, messageID, body } = event;
+
+  // Check if the message contains a TikTok, Facebook, or Instagram link
+  const regex = /(https?:\/\/(?:[a-zA-Z0-9-]+\.)?(tiktok\.com|facebook\.com|instagram\.com)\/[^\s]+)/gi;
+  const match = body.match(regex);
+
+  if (match) {
+    const videoUrl = match[0]; // Take the first matched URL
+
+    // Notify the user and ask them to react to the message to start the download
+    api.sendMessage("I found a link. React to this message to download the video.", threadID, (error, messageInfo) => {
+      if (error) return console.error(error);
+
+      // Store the reaction handler data
+      global.client.handleReaction.push({
+        name: "videoDownloader",
+        messageID: messageInfo.messageID,
+        author: event.senderID,
+        videoUrl: videoUrl
+      });
+    });
+  }
+};
+
+module.exports.run = async function({ api, event }) {};
