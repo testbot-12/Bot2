@@ -3,7 +3,7 @@ module.exports.config = {
   name: "poli",
   version: "1.0.",
   hasPermssion: 1,
-  credits: "jameslim",
+  credits: "Sakibin",
   description: "generate image from polination",
   commandCategory: "ai",
   usages: "(prompt?)",
