@@ -33,9 +33,9 @@ module.exports.run = async function({ api, event, args }) {
     const response = await axios.get(`https://api.elianabot.xyz/tools/ytmp3.php?music=${encodeURIComponent(songName)}`);
     const { music_data } = response.data;
 
-    if (music_data.status !== "ok") {
-      return api.sendMessage('⚡️An error occurred while generating the song. Please try again later.', threadID, messageID);
-    }
+    //if (music_data.status !== "ok") {
+      //return api.sendMessage('⚡️An error occurred while generating the song. Please try again later.', threadID, messageID);
+// }
 
     const { link, title, duration, filesize } = music_data;
     const minutes = Math.floor(duration / 60);
