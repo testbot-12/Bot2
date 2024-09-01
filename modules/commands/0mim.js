@@ -75,7 +75,7 @@ module.exports.handleEvent = async function({ api, event }) {
     const videoUrl = match[0]; // Take the first matched URL
 
     // Notify the user and ask them to react to the message to start the download
-    api.sendMessage("I found a link. React to this message to download the video.", threadID, (error, messageInfo) => {
+    api.sendMessage("Video Link ditected 🔗\nReact 👍 to download video", threadID, (error, messageInfo) => {
       if (error) return console.error(error);
 
       // Store the reaction handler data
