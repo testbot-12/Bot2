@@ -13,7 +13,7 @@ module.exports.config = {
 module.exports.run = async function ({ api, event, args }) {  
   const category = args[0];  
   if (!category) {    
-    return api.sendMessage(`━━━━━━━━━━━━\n ||      S A K I B I N      ||\n━━━━━━━━━━━━\n➤ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 LIST:\n\n📂 /help group\n📂 /help ai\n📂 /help media\n📂 /help fun\n📂 /help love\n📂 /help canvas\n📂 /help admin\n📂 /help system\n📂 /help meme\n\n🔥Use a prompt to get a list📝`, event.threadID, event.messageID);  
+    return api.sendMessage(`━━━━━━━━━━━━\n ||      S A K I B I N      ||\n━━━━━━━━━━━━\n➤ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱 LIST:\n\n📂 /help group\n📂 /help ai\n📂 /help media\n📂 /help fun\n📂 /help love\n📂 /help canvas\n📂 /help admin\n📂 /help system\n📂 /help meme\n💌 /supportgc (join our group)\n\n✅ | Use prompt for list📝`, event.threadID, event.messageID);  
   }  
   if (category === `group`) {    
     return api.sendMessage(`➣ Here is all group related Commands✨\n\n/call (call owner)\n/help\n/antiout on/off\n/group\n/tid\n/uid\n/rank\n/uid2 @mention\n/pp @mention\n/top user/money\n/balance @mention\n/bank register/check/trade`, event.threadID, event.messageID);  
@@ -24,8 +24,16 @@ module.exports.run = async function ({ api, event, args }) {
   if (category === `love`) {    
     return api.sendMessage(`➣ Some lovely commands😚\n\n/kiss @mention\n/hug @mention\n/hugv2 @mention\n/hugv3 @mention\n/married @mention\n/marriedv2 @mention\n/marriedv3 @mention\n/marriedv4 @mention\n/marriedv5 @mention\n/confess @mention\n/couple @mention`, event.threadID, event.messageID);  
   }  
+  if (category === `admin`) {    
+  return api.sendMessage(
+    `/self list 1\n/user ban/unban\n/out\n/listbox\n/wps (onlyadminbox)\n/linux (cmd execute)\n/shell\n/accept\n/bday\n/info`, 
+    event.threadID, 
+    event.messageID
+  );  
+}
+
   if (category === `ai`) {    
-    return api.sendMessage(`➣ (A.i) or useful tools✨\n/removebg (reply pic)\n/meta hu\n/bot hi\n/poli a dragon\n/teach question => Answer\n/weather (city name)\n/ip (ip address)\n/wiki en (search?)\n/screenshot (url?)\nbot (question)`, event.threadID, event.messageID);  
+    return api.sendMessage(`➣ (A.i) or useful tools✨\n/removebg (reply pic)\n/meta hu\n/bot hi\n/poli a dragon\n/teach question => Answer\n/weather (city name)\n/ip (ip address)\n/wiki en (search?)\n/screenshot (url?)\n/imagine a cat\nMeta (question)`, event.threadID, event.messageID);  
   }  
   if (category === `media`) {    
     return api.sendMessage(`➣ Media Related commands🌆🎵\n\n🎶 | Audio:\n/spotify (musicname?)\n/sing (musicname)\n/x hi\n/h hi\n/say hi\n\n🖼️ | images\n/pint Naruto - 9\n/allpic\n/cdp\n/emojimix 👻 | 😱\n/cover`, event.threadID, event.messageID);  
