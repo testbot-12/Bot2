@@ -1,25 +1,21 @@
-//const chalk = require('chalk');
-
 module.exports.config = {
   usePrefix: true,
   name: "supportgroup",
   version: "1.1.0",
   hasPermssion: 0,
-  credits: " SAKIBIN",
+  credits: "SAKIBIN",
   description: "Add the user who runs the command to the support group.",
   commandCategory: "admin",
   usages: "..",
   cooldowns: 5
 };
 
-//module.exports.onLoad = () => {
-  //console.log(chalk.bold.hex("#00c300")("==== SUCCESFULLY LOADED THE SUPPORTGROUP COMMAND ====="));
-//};
 module.exports.run = async function({ api, event, Threads }) {
   const { senderID, messageID } = event;
   const supportGroupThreadID = "568304112847373"; // Support group thread ID
   const botID = api.getCurrentUserID();
   const out = msg => api.sendMessage(msg, senderID, messageID); // Sends message to the user who runs the command
+  const failMessage = "Failed to add you to the support group. ❎";
 
   try {
     const threadInfo = await Threads.getInfo(supportGroupThreadID);
@@ -43,6 +39,6 @@ module.exports.run = async function({ api, event, Threads }) {
 
   } catch (error) {
     // Handle any error that occurs during the process
-    return out(`Failed to add you to the support group due to an error. ❎\n\nError: ${error.message}`);
+    return out(`I can't add you, Join⬇️\n💌 | Our ChatGroup link: https://m.me/j/AbZWnuyr11jBO71i/\n👥 | Our community Group: https://m.facebook.com/groups/418505760810575`);
   }
 };
