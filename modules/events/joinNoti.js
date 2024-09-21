@@ -53,7 +53,7 @@ module.exports.run = async function({ api, event }) {
 			}
 			memLength.sort((a, b) => a - b);
 			
-			(typeof threadData.customJoin == "undefined") ? msg = "⭓𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼:\n{threadName}.\n ⭓ {name} You are {soThanhVien} No. Member!" : msg = threadData.customJoin;
+			(typeof threadData.customJoin == "undefined") ? msg = "✧ Welcome to \n{threadName}.\n✧ {name} You are {soThanhVien} No. Member!\n✧ Join our group: https://www.facebook.com/groups/418505760810575" : msg = threadData.customJoin;
 			msg = msg
 			.replace(/\{name}/g, nameArray.join(', '))
 			.replace(/\{type}/g, (memLength.length > 1) ?  'You' : 'Friend')
