@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+//const chalk = require('chalk');
 
 module.exports.config = {
   usePrefix: true,
@@ -12,10 +12,9 @@ module.exports.config = {
   cooldowns: 5
 };
 
-module.exports.onLoad = () => {
-  console.log(chalk.bold.hex("#00c300")("==== SUCCESFULLY LOADED THE SUPPORTGROUP COMMAND ====="));
-};
-
+//module.exports.onLoad = () => {
+  //console.log(chalk.bold.hex("#00c300")("==== SUCCESFULLY LOADED THE SUPPORTGROUP COMMAND ====="));
+//};
 module.exports.run = async function({ api, event, Threads }) {
   const { senderID, messageID } = event;
   const supportGroupThreadID = "568304112847373"; // Support group thread ID
