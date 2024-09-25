@@ -33,6 +33,7 @@
 	  "@miraipr0ject/assets": "",
 		"@replit/database": "^2.0.2",
 		"@supercharge/strings": "^1.28.0",
+  "@duyhau/fca-unofficial" : "",
 		"akaneko": "^5.2.3",
 		"axios": "^0.26.1",
 		"canvas": "^2.11.2",
