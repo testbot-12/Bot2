@@ -47,7 +47,7 @@
 		"extract-zip": "",
 		"face-api-lnw": "^4.0.2",
 		"fb-lnw-api-sck": "^10.5.20",
-		"fca-sakibin-remarsted": "^3.5.4",
+		"fca-sakibin-new": "",
 		"fs-extra": "^10.1.0",
 		"form-data": "^4.0.0",
 		"express": "^4.15.4",
