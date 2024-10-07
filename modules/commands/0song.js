@@ -16,7 +16,7 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, event, args }) {
     const listensearch = encodeURIComponent(args.join(" "));
-    const apiUrl = `https://ekotapay.xyz:2243/sing=${listensearch}`;
+    const apiUrl = `ekotapay.xyz:2243/sing=${listensearch}`;
 
     if (!listensearch) return api.sendMessage("Music এর নাম লিখবো কিডা?", event.threadID, event.messageID);
 
