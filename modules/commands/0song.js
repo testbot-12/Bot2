@@ -6,8 +6,8 @@ module.exports.config = {
     version: "1.0.0",
     hasPermision: 0,
     credits: "sakibin", 
-    description: "Search and play music from Spotify",
-    commandCategory: "spotify",
+    description: "Search and play music",
+    commandCategory: "music",
     usage: "[song name]",
     cooldowns: 5,
     usages: "[song name]",
@@ -16,28 +16,28 @@ module.exports.config = {
 
 module.exports.run = async function ({ api, event, args }) {
     const listensearch = encodeURIComponent(args.join(" "));
-    const apiUrl = `https://api.elianabot.xyz/tools/ytmp3.php?music=${listensearch}`;
+    const apiUrl = `https://ekotapay.xyz:2243/sing=${listensearch}`;
 
-    if (!listensearch) return api.sendMessage("Please provide the name of the song you want to search.", event.threadID, event.messageID);
+    if (!listensearch) return api.sendMessage("Music এর নাম লিখবো কিডা?", event.threadID, event.messageID);
 
     try {
         // Set 🔍 reaction when download starts
         api.setMessageReaction("🔍", event.messageID, (err) => {}, true);
 
         const response = await axios.get(apiUrl);
-        const { music_data: { link, title }, video_title } = response.data;
+        const { audio_url, title } = response.data;
 
-        if (link) {
+        if (audio_url) {
             const filePath = `${__dirname}/cache/${event.senderID}.mp3`;
             const writeStream = fs.createWriteStream(filePath);
 
-            const audioResponse = await axios.get(link, { responseType: 'stream' });
+            const audioResponse = await axios.get(audio_url, { responseType: 'stream' });
 
             audioResponse.data.pipe(writeStream);
 
             writeStream.on('finish', () => {
                 api.sendMessage({
-                    body: `🎵 | New YTDL api.\n\n🎶 Music: ${title || video_title}\n`,
+                    body: `🎵 | Music Found.\n\n🎶 Music: ${title}\n`,
                     attachment: fs.createReadStream(filePath),
                 }, event.threadID, () => fs.unlinkSync(filePath), event.messageID);
                 
@@ -45,10 +45,10 @@ module.exports.run = async function ({ api, event, args }) {
                 api.setMessageReaction("✅", event.messageID, (err) => {}, true);
             });
         } else {
-            api.sendMessage("❓ | Sorry, couldn't find the requested music on Spotify.", event.threadID);
+            api.sendMessage("❓ | Sorry, couldn't find the requested music.", event.threadID);
         }
     } catch (error) {
         console.error(error);
-        api.sendMessage("🚧 | An error occurred while processing your request.", event.threadID);
+        api.sendMessage("Failed❗", event.threadID);
     }
 };
